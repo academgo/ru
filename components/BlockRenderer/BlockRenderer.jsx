@@ -1,0 +1,191 @@
+import { Heading } from "components/Heading";
+import { Paragraph } from "components/Paragraph";
+import { Cover } from "components/Cover";
+import { theme } from "theme";
+import { Slider } from "components/Slider/Slider";
+import { ImageCustom } from "components/ImageCuston/ImageCustom";
+import { Columns } from "components/Columns";
+import { Column } from "components/Column";
+// import { ContactForm } from "components/ContactForm";
+import { MediaText } from "components/MediaText";
+
+export const BlockRenderer = ({ blocks }) => {
+
+  const objToArray = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        image: data[`slides_${slideIndex}_slide_image`],
+        link: data[`slides_${slideIndex}_slide_link`],
+        link_text: data[`slides_${slideIndex}_slide_link_text`],
+        text: data[`slides_${slideIndex}_slide_text`],
+        title: data[`slides_${slideIndex}_slide_title`],
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
+  return blocks.map(block => {
+    switch (block.name) {
+      case "acf/swiperslider": {
+        const innerBlocks = objToArray(block.attributes.data, "slides");
+        // console.log("SLIDER: ", innerBlocks)
+        return (
+          <Slider
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
+      // case "acf/contactform": {
+      //   // console.log("CONTACT FORM: ", block.attributes);
+      //   return (
+      //     <ContactForm
+      //       key={block.id}
+      //     />
+      //   )
+      // }
+      case "core/paragraph": {
+        // console.log("PARAGRAPH: ", block.attributes);
+        const marginTop = block.attributes.style?.spacing?.margin?.top || '0px';
+        const marginBottom = block.attributes.style?.spacing?.margin?.bottom || '0px';
+        return (
+          <Paragraph
+            key={block.id}
+            content={block.attributes.content}
+            textAlign={block.attributes.align}
+            fontSize={block.attributes.fontSize}
+            textColor={
+              theme[block.attributes.textColor] ||
+              block.attributes.style?.color?.text
+            }
+            marginTop={marginTop}
+            marginBottom={marginBottom}
+          />
+        )
+      }
+      case "core/post-title":
+      case "core/heading": {
+        // console.log("HEADING: ", block.attributes);
+        return (
+          <Heading
+            key={block.id}
+            level={block.attributes.level}
+            content={block.attributes.content}
+            textAlign={block.attributes.textAlign}
+            marginTop={block.attributes.style?.spacing?.margin?.top}
+            marginBottom={block.attributes.style?.spacing?.margin?.bottom}
+            paddingTop={block.attributes.style?.spacing?.padding?.top}
+            paddingBottom={block.attributes.style?.spacing?.padding?.bottom}
+            textColor={
+              theme[block.attributes.textColor] ||
+              block.attributes.style?.color?.text
+            }
+            backgroundColor={
+              theme[block.attributes.backgroundColor] ||
+              block.attributes.style?.color?.background
+            }
+          />
+        );
+      }
+      case 'core/cover': {
+        // console.log("COVER: ", block.attributes);
+        return (
+          <Cover
+            key={block.id}
+            background={block.attributes.url}
+            overlayColor={block.attributes.overlayColor}
+            overlayOpacity={block.attributes.dimRatio}
+            minHeight={block.attributes.minHeight}
+            marginTop={block.attributes.style?.spacing?.margin?.top}
+            marginBottom={block.attributes.style?.spacing?.margin?.bottom}
+          >
+            <BlockRenderer blocks={block.innerBlocks} />
+          </Cover>
+        )
+      }
+      case "core/columns": {
+        // console.log("COLUMNS:", block.attributes);
+        return (
+          <Columns
+            key={block.id}
+            isStackedOnMobile={block.attributes.isStackedOnMobile}
+            align={block.attributes.align}
+            textColor={
+              theme[block.attributes.textColor] ||
+              block.attributes.style?.color?.text
+            }
+            backgroundColor={
+              theme[block.attributes.backgroundColor] ||
+              block.attributes.style?.color?.background
+            }
+            verticalAlignment={block.attributes.verticalAlignment}
+            marginTop={block.attributes.style?.spacing?.margin?.top}
+            marginBottom={block.attributes.style?.spacing?.margin?.bottom}
+            paddingTop={block.attributes.style?.spacing?.padding?.top}
+            paddingBottom={block.attributes.style?.spacing?.padding?.bottom}
+            gap={block.attributes.style?.spacing?.blockGap?.left}
+          >
+            <BlockRenderer blocks={block.innerBlocks} />
+          </Columns>
+        )
+      }
+      case "core/column": {
+        // console.log("COLUMN:", block.attributes);
+        return (
+          <Column
+            key={block.id}
+            width={block.attributes.width}
+            textColor={
+              theme[block.attributes.textColor] ||
+              block.attributes.style?.color?.text
+            }
+            backgroundColor={
+              theme[block.attributes.backgroundColor] ||
+              block.attributes.style?.color?.background
+            }
+          >
+            <BlockRenderer blocks={block.innerBlocks} />
+          </Column>
+        )
+      }
+      case "core/image": {
+        // console.log("IMAGE:", block.attributes);
+        return (
+          <ImageCustom
+            key={block.id}
+            src={block.attributes.url}
+            width={block.attributes.width}
+            height={block.attributes.height}
+            alt={block.attributes.alt || ""}
+            align={block.attributes.align}
+            href={block.attributes?.href}
+          />
+        )
+      }
+      case "core/media-text": {
+        return (
+          <MediaText
+            key={block.id}
+            height={block.attributes.height}
+            mediaLink={block.attributes.mediaLink}
+            verticalAlignment={block.attributes.verticalAlignment}
+            mediaPosition={block.attributes.mediaPosition}
+            innerBlocks={block.innerBlocks}
+          >
+            <BlockRenderer blocks={block.innerBlocks} />
+          </MediaText>
+        )
+      }
+      default: {
+        console.log("UNKNOWN: ", block);
+        return null;
+      }
+    }
+  })
+}
