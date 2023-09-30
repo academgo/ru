@@ -9,10 +9,6 @@ export const getMenu = async () => {
             logo {
               sourceUrl
             }
-            headerDescription {
-              boldText
-              regularText
-            }
             menuItems {
               menuItem {
                 destination {
@@ -36,9 +32,7 @@ export const getMenu = async () => {
   });
   const { data } = await response.json();
   return {
-    // boldText: data.acfOptionsMainMenu.mainMenu.headerDescription.boldText,
-    // regularText: data.acfOptionsMainMenu.mainMenu.headerDescription.regularText,
-    // logo: data.acfOptionsMainMenu.mainMenu.logo.sourceUrl,
-    // mainMenuItems: mapMainMenuItems(data.acfOptionsMainMenu.mainMenu.menuItems),
+    logo: data.acfOptionsMainMenu.mainMenu.logo.sourceUrl,
+    mainMenuItems: mapMainMenuItems(data.acfOptionsMainMenu.mainMenu.menuItems),
   };
 }

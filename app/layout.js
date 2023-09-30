@@ -1,44 +1,43 @@
-import { Raleway, Inter } from 'next/font/google';
+import { Roboto, Rubik } from 'next/font/google';
 
 import '../styles/globals.css';
-import { MainMenu } from 'components/MainMenu';
-import { Footer } from 'components/Footer';
 import { getMenu } from 'utils/getMenu';
 import { getFooter } from 'utils/getFooter';
+import { TheHeader } from 'components/TheHeader';
+import { TheFooter } from 'components/TheFooter';
 
-const raleway = Raleway({
+const roboto = Roboto({
   subsets: ['latin'],
   weight: ['700'],
   display: 'swap',
-  variable: '--font-raleway',
+  variable: '--font-roboto',
 });
 
-const inter = Inter({
+const rubik = Rubik({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-rubik',
 });
 
 export default async function RootLayout({ children }) {
-  const data = await getMenu();
+  const headerData = await getMenu();
   const footerData = await getFooter();
+  console.log(footerData.linksNavigate);
   return (
-    <html lang="en" className={`${raleway.variable} ${inter.variable}`}>
+    <html lang="en" className={`${roboto.variable} ${rubik.variable}`}>
       <body className='font-body'>
-        {/* <MainMenu
-          boldText={data.boldText}
-          regularText={data.regularText}
-          items={data.mainMenuItems}
-          logo={data.logo}
-        /> */}
+        <TheHeader
+          logo={headerData.logo}
+          items={headerData.mainMenuItems}
+        />
         {children}
-        {/* <Footer
-          copyright={footerData.copyright}
-          footerLinksApartments={footerData.footerLinksApartments}
-          footerLinksPages={footerData.footerLinksPages}
-          footerLogo={footerData.footerLogo}
-        /> */}
+        <TheFooter
+          logo={footerData.logo}
+          linksFaq={footerData.linksFaq}
+          linksNavigate={footerData.linksNavigate}
+          linksServices={footerData.linksServices}
+        />
       </body>
     </html>
   );

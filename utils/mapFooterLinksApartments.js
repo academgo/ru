@@ -1,9 +1,9 @@
 import { v4 as uuid } from "uuid";
 
-export const mapFooterLinksApartments = (footerLinksApartments) => {
-  return footerLinksApartments.map((footerLinkApartment) => ({
+export const mapFooterLinksFaq = (linksFaq) => {
+  return linksFaq.map((linkFaq) => ({
     id: uuid(),
-    destination: footerLinkApartment.footerLinkApartment.destination?.uri,
-    label: footerLinkApartment.footerLinkApartment.label,
+    destination: linkFaq.linkFaq.destination?.uri,
+    label: linkFaq.linkFaq.label,
   }));
 };

@@ -11,12 +11,14 @@
   "dependencies": {
     "@apollo/client": "^3.6.8",
     "graphql": "^16.5.0",
+    "gsap": "^3.12.2",
     "html-react-parser": "^3.0.4",
     "next": "13.4.19",
     "numeral": "^2.0.6",
     "query-string": "^7.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.11.0",
     "sass": "^1.67.0",
     "uuid": "^8.3.2"
   },

@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: 'var(--font-raleway)',
-        body: 'var(--font-inter)',
+        heading: 'var(--font-roboto)',
+        body: 'var(--font-rubik)',
       },
     },
   },

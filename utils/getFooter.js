@@ -1,5 +1,4 @@
-import { mapFooterLinksApartments } from "./mapFooterLinksApartments";
-import { mapfooterLinksPages } from "./mapfooterLinksPages";
+import { mapFooterLinksFaq, mapFooterLinksServices, mapFooterLinksNavigate } from "./mapFooterLinks";
 
 export const getFooter = async () => {
   const params = {
@@ -7,9 +6,8 @@ export const getFooter = async () => {
       query FooterQuery {
         acfOptionsFooter {
           footer {
-            copyright
-            footerLinksApartments {
-              footerLinkApartment {
+            linksFaq {
+              linkFaq {
                 destination {
                   ... on Page {
                     uri
@@ -18,17 +16,27 @@ export const getFooter = async () => {
                 label
               }
             }
-            footerLinksPages {
-              footerLinkPage {
+            linksNavigate {
+              linkNavigate {
+                label
                 destination {
                   ... on Page {
                     uri
                   }
                 }
-                label
               }
             }
-            footerLogo {
+            linksServices {
+              linkServices {
+                label
+                destination {
+                  ... on Page {
+                    uri
+                  }
+                }
+              }
+            }
+            logo {
               sourceUrl
             }
           }
@@ -45,9 +53,9 @@ export const getFooter = async () => {
   const { data } = await response.json();
 
   return {
-    // copyright: data.acfOptionsFooter.footer.copyright,
-    // footerLinksApartments: mapFooterLinksApartments(data.acfOptionsFooter.footer.footerLinksApartments),
-    // footerLinksPages: mapfooterLinksPages(data.acfOptionsFooter.footer.footerLinksPages),
-    // footerLogo: data.acfOptionsFooter.footer.footerLogo.sourceUrl,
+    logo: data.acfOptionsFooter.footer.logo.sourceUrl,
+    linksFaq: mapFooterLinksFaq(data.acfOptionsFooter.footer.linksFaq),
+    linksNavigate: mapFooterLinksNavigate(data.acfOptionsFooter.footer.linksNavigate),
+    linksServices: mapFooterLinksServices(data.acfOptionsFooter.footer.linksServices),
   };
 }
