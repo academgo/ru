@@ -11,6 +11,8 @@ import { MediaText } from "components/MediaText";
 import { ButtonPrimary } from "components/ButtonPrimary";
 import { ButtonSecondary } from "components/ButtonSecondary";
 import { SliderMain } from "components/SliderMain";
+import { ContactForm } from "components/ContactForm";
+import { SocialIcons } from "components/SocialIcons";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -41,6 +43,21 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/socialicons": {
+        // console.log("SOCIAL ICONS: ", block.attributes);
+        return (
+          <SocialIcons />
+        )
+      }
+      case "acf/contactform": {
+        // console.log("CONTACT FORM: ", block.attributes);
+        return (
+          <ContactForm
+            key={block.id}
+            buttonText={block.attributes.data.button_text}
+          />
+        )
+      }
       case "acf/buttonprimary": {
         // console.log("BUTTON PRIMARY: ", block.attributes);
         return (

@@ -8,10 +8,9 @@ import styles from './ContactForm.module.scss';
 
 const initialValues = {
   name: '',
+  country: '',
   phone: '',
   email: '',
-  datestart: '',
-  dateend: '',
   message: '',
 };
 
@@ -20,19 +19,18 @@ const validationSchema = Yup.object({
   country: Yup.string().required('Required'),
   phone: Yup.string().required('Required'),
   email: Yup.string().email('Invalid email address').required('Required'),
-  message: Yup.string().required('Required'),
+  // message: Yup.string().required('Required'),
 });
 
-export const ContactForm = () => {
+export const ContactForm = ({ buttonText }) => {
 
   const [values, setValues] = useState(initialValues);
 
   const [fieldStates, setFieldStates] = useState({
     name: false,
+    country: false,
     phone: false,
     email: false,
-    datestart: false,
-    dateend: false,
     message: false,
   });
 
@@ -95,139 +93,98 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className={styles.formWrapper}>
-      <Formik initialValues={initialValues} validationSchema={validationSchema} validateOnBlur onSubmit={onSubmit}>
-        <Form className={styles.form}>
+    <Formik initialValues={initialValues} validationSchema={validationSchema} validateOnBlur onSubmit={onSubmit}>
+      <Form className={styles.form}>
+        <div
+          className={styles.inputData}
+        >
+          <Field
+            className={styles.input}
+            type="text"
+            id="name"
+            name="name"
+            onFocus={() => setFieldStates({ ...fieldStates, name: true })}
+            onBlur={(e) => handleFieldChange('name', e.target.value)}
+          />
+          <label
+            htmlFor="name"
+            className={`${styles.label} ${fieldStates.name || initialValues.name ? styles.focused : ''}`}
+          >
+            Full name
+          </label>
+          <ErrorMessage name="name" component="div" className={styles.errorMessage} />
+        </div>
+
+        <div className={styles.inputWrapper}>
           <div
             className={styles.inputData}
           >
             <Field
               className={styles.input}
               type="text"
-              id="name"
-              name="name"
-              onFocus={() => setFieldStates({ ...fieldStates, name: true })}
-              onBlur={(e) => handleFieldChange('name', e.target.value)}
+              id="country"
+              name="country"
+              onFocus={() => setFieldStates({ ...fieldStates, country: true })}
+              onBlur={(e) => handleFieldChange('country', e.target.value)}
             />
             <label
-              htmlFor="name"
-              className={`${styles.label} ${fieldStates.name || initialValues.name ? styles.focused : ''}`}
+              htmlFor="country"
+              className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
             >
-              Your full name
+              Country of residence
             </label>
-            <ErrorMessage name="name" component="div" className={styles.errorMessage} />
+            <ErrorMessage name="country" component="div" className={styles.errorMessage} />
           </div>
-          <div className={styles.inputWrapper}>
-            <div
-              className={styles.inputData}
-            >
-              <Field
-                className={styles.input}
-                type="text"
-                id="phone"
-                name="phone"
-                onFocus={() => setFieldStates({ ...fieldStates, phone: true })}
-                onBlur={(e) => handleFieldChange('phone', e.target.value)}
-              />
-              <label
-                htmlFor="phone"
-                className={`${styles.label} ${fieldStates.phone || initialValues.phone ? styles.focused : ''}`}
-              >
-                Phone
-              </label>
-              <ErrorMessage name="phone" component="div" className={styles.errorMessage} />
-            </div>
 
-            <div
-              className={styles.inputData}
-            >
-              <Field
-                className={styles.input}
-                type="email"
-                id="email"
-                name="email"
-                onFocus={() => setFieldStates({ ...fieldStates, email: true })}
-                onBlur={(e) => handleFieldChange('email', e.target.value)}
-              />
-              <label
-                htmlFor="email"
-                className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
-              >
-                Email
-              </label>
-              <ErrorMessage name="email" component="div" className={styles.errorMessage} />
-            </div>
-          </div>
-          <div className={styles.inputWrapper}>
-            <div
-              className={styles.inputData}
-            >
-              <Field
-                className={styles.input}
-                type="date"
-                id="datestart"
-                name="datestart"
-                onFocus={() => setFieldStates({ ...fieldStates, datestart: true })}
-                onBlur={(e) => handleFieldChange('datestart', e.target.value)}
-              />
-              <label
-                htmlFor="datestart"
-                className={`${styles.dateLabel} ${fieldStates.datestart || initialValues.datestart ? styles.focused : ''}`}
-              >
-                Arrival date
-              </label>
-              <ErrorMessage name="datestart" component="div" className={styles.errorMessage} />
-            </div>
-
-            <div
-              className={styles.inputData}
-            >
-              <Field
-                className={styles.input}
-                type="date"
-                id="dateend"
-                name="dateend"
-                onFocus={() => setFieldStates({ ...fieldStates, dateend: true })}
-                onBlur={(e) => handleFieldChange('dateend', e.target.value)}
-              />
-              <label
-                htmlFor="dateend"
-                className={`${styles.dateLabel} ${fieldStates.dateend || initialValues.dateend ? styles.focused : ''}`}
-              >
-                Departure date
-              </label>
-              <ErrorMessage name="dateend" component="div" className={styles.errorMessage} />
-            </div>
-          </div>
           <div
-            className={`${styles.inputData} ${styles.textarea}`}
+            className={styles.inputData}
           >
             <Field
-              as="textarea"
-              id="message"
-              name="message"
-              onFocus={() => setFieldStates({ ...fieldStates, message: true })}
-              onBlur={(e) => handleFieldChange('message', e.target.value)}
+              className={styles.input}
+              type="email"
+              id="email"
+              name="email"
+              onFocus={() => setFieldStates({ ...fieldStates, email: true })}
+              onBlur={(e) => handleFieldChange('email', e.target.value)}
             />
             <label
-              htmlFor="message"
-              className={`${styles.labelTextarea} ${fieldStates.message || initialValues.message ? styles.focused : ''}`}
+              htmlFor="email"
+              className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
             >
-              Message
+              Email
             </label>
-            <ErrorMessage name="message" component="div" className={styles.errorMessage} />
+            <ErrorMessage name="email" component="div" className={styles.errorMessage} />
           </div>
+        </div>
 
-          <div className={styles.buttonBlock}>
-            <button
-              className={styles.button}
-              type="submit"
-            >
-              Send
-            </button>
-          </div>
-        </Form>
-      </Formik>
-    </div>
+        <div
+          className={`${styles.inputData} ${styles.textarea}`}
+        >
+          <Field
+            as="textarea"
+            id="message"
+            name="message"
+            onFocus={() => setFieldStates({ ...fieldStates, message: true })}
+            onBlur={(e) => handleFieldChange('message', e.target.value)}
+          />
+          <label
+            htmlFor="message"
+            className={`${styles.labelTextarea} ${fieldStates.message || initialValues.message ? styles.focused : ''}`}
+          >
+            Message
+          </label>
+          <ErrorMessage name="message" component="div" className={styles.errorMessage} />
+        </div>
+
+        <div className={styles.buttonBlock}>
+          <button
+            className={styles.button}
+            type="submit"
+          >
+            {buttonText}
+          </button>
+        </div>
+      </Form>
+    </Formik>
   );
 };

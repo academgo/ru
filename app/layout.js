@@ -23,7 +23,7 @@ const rubik = Rubik({
 export default async function RootLayout({ children }) {
   const headerData = await getMenu();
   const footerData = await getFooter();
-  console.log(footerData.linksNavigate);
+  // console.log(footerData.linksNavigate);
   return (
     <html lang="en" className={`${roboto.variable} ${rubik.variable}`}>
       <body className='font-body'>

@@ -63,6 +63,7 @@ export const SliderMain = ({ slides }) => {
               slidesPerView: 3,
             },
           }}
+          slidesPerView={'auto'}
           loop={true}
         >
           {slides.map((slide) => (

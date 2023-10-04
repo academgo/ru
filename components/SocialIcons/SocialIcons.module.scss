@@ -1,0 +1,21 @@
+.footerBottomSocial {
+  display: flex;
+  // justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    justify-content: start;
+    gap: 10px;
+  }
+}
+
+.footerBottomSocialItem {
+  padding: 10px;
+  background-color: #ffa800;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #ab8437;
+  }
+}
