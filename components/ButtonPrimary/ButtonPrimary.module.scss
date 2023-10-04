@@ -1,0 +1,18 @@
+.buttonPrimary {
+  background-color: #ffa800;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: clamp(0.875rem, 0.83rem + 0.23vw, 1rem);
+  border: 2px solid #ffa800;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: none;
+    border: 2px solid #ffa800;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+  }
+}

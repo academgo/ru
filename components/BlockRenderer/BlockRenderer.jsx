@@ -1,13 +1,16 @@
+"use client";
 import { Heading } from "components/Heading";
 import { Paragraph } from "components/Paragraph";
 import { Cover } from "components/Cover";
 import { theme } from "theme";
-import { Slider } from "components/Slider/Slider";
 import { ImageCustom } from "components/ImageCuston/ImageCustom";
 import { Columns } from "components/Columns";
 import { Column } from "components/Column";
 // import { ContactForm } from "components/ContactForm";
 import { MediaText } from "components/MediaText";
+import { ButtonPrimary } from "components/ButtonPrimary";
+import { ButtonSecondary } from "components/ButtonSecondary";
+import { SliderMain } from "components/SliderMain";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -18,11 +21,17 @@ export const BlockRenderer = ({ blocks }) => {
     for (let i = 0; i < slideCount; i++) {
       const slideIndex = i.toString();
       const slide = {
-        image: data[`slides_${slideIndex}_slide_image`],
-        link: data[`slides_${slideIndex}_slide_link`],
-        link_text: data[`slides_${slideIndex}_slide_link_text`],
-        text: data[`slides_${slideIndex}_slide_text`],
+        background: data[`slides_${slideIndex}_slide_background`],
+        icon: data[`slides_${slideIndex}_slide_icon`],
+        contentColor: data[`slides_${slideIndex}_slide_content_color`],
         title: data[`slides_${slideIndex}_slide_title`],
+        titleSize: data[`slides_${slideIndex}_slide_title_size`],
+        text: data[`slides_${slideIndex}_slide_text`],
+        textSize: data[`slides_${slideIndex}_slide_text_size`],
+        buttonBg: data[`slides_${slideIndex}_slide_button_bg`],
+        buttonLabelColor: data[`slides_${slideIndex}_slide_button_label_color`],
+        buttonLabel: data[`slides_${slideIndex}_slide_button_label`],
+        buttonDestination: data[`slides_${slideIndex}_slide_button_destination`],
       };
       arr.push(slide);
     }
@@ -32,11 +41,31 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
-      case "acf/swiperslider": {
+      case "acf/buttonprimary": {
+        // console.log("BUTTON PRIMARY: ", block.attributes);
+        return (
+          <ButtonPrimary
+            key={block.id}
+            text={block.attributes.data.text}
+            link={block.attributes.data.link}
+          />
+        )
+      }
+      case "acf/buttonsecondary": {
+        // console.log("BUTTON SECONDARY: ", block.attributes);
+        return (
+          <ButtonSecondary
+            key={block.id}
+            text={block.attributes.data.text}
+            link={block.attributes.data.link}
+          />
+        )
+      }
+      case "acf/slidermain": {
         const innerBlocks = objToArray(block.attributes.data, "slides");
         // console.log("SLIDER: ", innerBlocks)
         return (
-          <Slider
+          <SliderMain
             key={block.id}
             slides={innerBlocks}
           />

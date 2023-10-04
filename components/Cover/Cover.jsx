@@ -5,18 +5,32 @@ export const Cover = ({ children, background, overlayColor, overlayOpacity, minH
 
   return (
     <div
-      className="h-screen text-white bg-black bg-opacity-50 relative min-h[400px] flex justify-center items-center"
-      style={{ height: minHeight, marginBottom: getMarginBottom(marginBottom) }}
+      className="h-screen relative min-h-[400px] flex justify-center items-center"
+      style={{
+        height: minHeight,
+        marginBottom: getMarginBottom(marginBottom),
+        position: 'relative',
+        backgroundImage: `url(${background})`, // Устанавливаем изображение как фон
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
-      <Image
-        alt="Cover"
-        src={background}
-        fill
-        className="mix-blend-soft-light object-cover"
-        style={{ opacity: getOverlayOpacity(overlayOpacity), backgroundColor: getOverlayColor(overlayColor) }}
+      {/* Псевдоэлемент ::before для создания накладываемого фона */}
+      <div
+        className="overlay"
+        style={{
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: getOverlayOpacity(overlayOpacity),
+          background: getOverlayColor(overlayColor),
+        }}
+      ></div>
 
-      />
-      <div className="max-w-5xl z-10">{children}</div>
+      <div className="z-10">{children}</div>
     </div>
-  )
+  );
 }
