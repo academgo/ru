@@ -1,11 +1,16 @@
-import { getAlignItems } from "utils/layout";
+import { getAlignItems, getPaddingTop, getPaddingBottom, getPaddingLeft, getPaddingRight } from "utils/layout";
 
 export const Column = ({
   children,
   width,
   textColor,
   backgroundColor,
-  verticalAlignment }) => {
+  verticalAlignment,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+}) => {
 
   const textColorStyle = textColor ? { color: textColor } : {};
   const backgroundColorStyle = backgroundColor ? { backgroundColor } : {};
@@ -14,7 +19,9 @@ export const Column = ({
     : { flexGrow: 1, flexBasis: 0 };
 
   return (
-    <div data-aos="fade-up" style={{ ...widthStyle, ...textColorStyle, ...backgroundColorStyle }} className={`${getAlignItems(verticalAlignment)}`}>
+    <div
+      data-aos="fade-up" style={{ ...widthStyle, ...textColorStyle, ...backgroundColorStyle }}
+      className={`${getAlignItems(verticalAlignment)} ${getPaddingTop(paddingTop)} ${getPaddingBottom(paddingBottom)} ${getPaddingLeft(paddingLeft)} ${getPaddingRight(paddingRight)}`}>
       {children}
     </div>
   )

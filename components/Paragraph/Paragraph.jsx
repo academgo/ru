@@ -1,11 +1,11 @@
 import { getTextAlign, getFontSizeForParagraph } from "utils/fonts";
 import { relativeToAbsoluteUrls } from "utils/relativeToAbsoluteUrls";
-import { getMarginTop, getMarginBottom } from "utils/layout";
+import { getMarginTop, getMarginBottom, getPaddingTop, getPaddingBottom } from "utils/layout";
 
-export const Paragraph = ({ textAlign = "left", content, textColor, fontSize, marginTop, marginBottom }) => {
+export const Paragraph = ({ textAlign = "left", content, textColor, fontSize, marginTop, marginBottom, paddingTop, paddingBottom }) => {
   return (
     <p
-      className={`max-w-[1220px] mx-auto ${getMarginTop(marginTop)} ${getMarginBottom(marginBottom)} ${getTextAlign(textAlign)} ${getFontSizeForParagraph(fontSize)}`}
+      className={`max-w-[1220px] mx-auto ${getPaddingTop(paddingTop)} ${getPaddingBottom(paddingBottom)} ${getMarginTop(marginTop)} ${getMarginBottom(marginBottom)} ${getTextAlign(textAlign)} ${getFontSizeForParagraph(fontSize)}`}
       style={{ color: textColor }}
       dangerouslySetInnerHTML={{ __html: relativeToAbsoluteUrls(content) }}
     />

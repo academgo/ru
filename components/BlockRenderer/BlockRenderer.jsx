@@ -13,6 +13,8 @@ import { ButtonSecondary } from "components/ButtonSecondary";
 import { SliderMain } from "components/SliderMain";
 import { ContactForm } from "components/ContactForm";
 import { SocialIcons } from "components/SocialIcons";
+import { Tickitem } from "components/Tickitem";
+import { Carousel } from "components/Carousel";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -41,12 +43,48 @@ export const BlockRenderer = ({ blocks }) => {
     return arr;
   };
 
+  const objToArrayCarousel = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        image: data[`slides_${slideIndex}_slide_image`],
+        alt: data[`slides_${slideIndex}_slide_alt`],
+        ratio: data[`slides_${slideIndex}_slide_ratio`],
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/carousel": {
+        const innerBlocks = objToArrayCarousel(block.attributes.data, "slides");
+        // console.log("CAROUSEL: ", innerBlocks)
+        return (
+          <Carousel
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
+      case "acf/tickitem": {
+        return (
+          <Tickitem key={block.id}>
+            <BlockRenderer blocks={block.innerBlocks} />
+          </Tickitem>
+        )
+      }
       case "acf/socialicons": {
         // console.log("SOCIAL ICONS: ", block.attributes);
         return (
-          <SocialIcons />
+          <SocialIcons
+            key={block.id}
+          />
         )
       }
       case "acf/contactform": {
@@ -112,6 +150,8 @@ export const BlockRenderer = ({ blocks }) => {
             }
             marginTop={marginTop}
             marginBottom={marginBottom}
+            paddingTop={block.attributes.style?.spacing?.padding?.top}
+            paddingBottom={block.attributes.style?.spacing?.padding?.bottom}
           />
         )
       }
@@ -150,6 +190,10 @@ export const BlockRenderer = ({ blocks }) => {
             minHeight={block.attributes.minHeight}
             marginTop={block.attributes.style?.spacing?.margin?.top}
             marginBottom={block.attributes.style?.spacing?.margin?.bottom}
+            paddingTop={block.attributes.style?.spacing?.padding?.top}
+            paddingBottom={block.attributes.style?.spacing?.padding?.bottom}
+            paddingLeft={block.attributes.style?.spacing?.padding?.left}
+            paddingRight={block.attributes.style?.spacing?.padding?.right}
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Cover>
@@ -195,6 +239,10 @@ export const BlockRenderer = ({ blocks }) => {
               theme[block.attributes.backgroundColor] ||
               block.attributes.style?.color?.background
             }
+            paddingTop={block.attributes.style?.spacing?.padding?.top}
+            paddingBottom={block.attributes.style?.spacing?.padding?.bottom}
+            paddingLeft={block.attributes.style?.spacing?.padding?.left}
+            paddingRight={block.attributes.style?.spacing?.padding?.right}
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>

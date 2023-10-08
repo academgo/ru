@@ -8,8 +8,10 @@
 }
 
 .slideContent {
-  border: 1px solid #0170B9;
-  border-radius: 5px;
+  position: relative;
+  height: 300px;
+  // border: 1px solid #0170B9;
+  // border-radius: 5px;
   padding: 1rem;
   width: clamp(12.5rem, 9.091rem + 17.05vw, 21.875rem);
   display: flex;

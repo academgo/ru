@@ -1,7 +1,26 @@
-import { getOverlayColor, getOverlayOpacity, getMarginBottom } from "utils/layout"
+import {
+  getOverlayColor,
+  getOverlayOpacity,
+  getMarginBottom,
+  getPaddingTop,
+  getPaddingBottom,
+  getPaddingLeft,
+  getPaddingRight
+} from "utils/layout"
 import Image from "next/image"
 
-export const Cover = ({ children, background, overlayColor, overlayOpacity, minHeight, marginBottom }) => {
+export const Cover = ({
+  children,
+  background,
+  overlayColor,
+  overlayOpacity,
+  minHeight,
+  marginBottom,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+}) => {
 
   return (
     <div
@@ -9,6 +28,10 @@ export const Cover = ({ children, background, overlayColor, overlayOpacity, minH
       style={{
         height: minHeight,
         marginBottom: getMarginBottom(marginBottom),
+        paddingTop: getPaddingTop(paddingTop),
+        paddingBottom: getPaddingBottom(paddingBottom),
+        paddingLeft: getPaddingLeft(paddingLeft),
+        paddingRight: getPaddingRight(paddingRight),
         position: 'relative',
         backgroundImage: `url(${background})`, // Устанавливаем изображение как фон
         backgroundSize: 'cover',

@@ -83,6 +83,33 @@ export const getPaddingBottom = (paddingBottom) => {
   return `${getPaddingBottomMap[paddingBottom] || ""}`;
 }
 
+export const getPaddingLeft = (paddingLeft) => {
+  const getPaddingLeftMap = {
+    "var:preset|spacing|30": "pl-8",
+    "var:preset|spacing|40": "pl-10",
+    "var:preset|spacing|50": "pl-12",
+    "var:preset|spacing|60": "pl-14",
+    "var:preset|spacing|70": "pl-16",
+    "var:preset|spacing|80": "pl-20",
+  };
+
+  return `${getPaddingLeftMap[paddingLeft] || ""}`;
+}
+
+export const getPaddingRight = (paddingRight) => {
+  const getPaddingRightMap = {
+    "var:preset|spacing|30": "pr-8",
+    "var:preset|spacing|40": "pr-10",
+    "var:preset|spacing|50": "pr-12",
+    "var:preset|spacing|60": "pr-14",
+    "var:preset|spacing|70": "pr-16",
+    "var:preset|spacing|80": "pr-20",
+  };
+
+  return `${getPaddingRightMap[paddingRight] || ""}`;
+}
+
+
 export const getGap = (gap) => {
   const getGapMap = {
     "var:preset|spacing|30": "gap-2",
