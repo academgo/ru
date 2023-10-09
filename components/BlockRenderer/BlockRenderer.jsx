@@ -6,7 +6,6 @@ import { theme } from "theme";
 import { ImageCustom } from "components/ImageCuston/ImageCustom";
 import { Columns } from "components/Columns";
 import { Column } from "components/Column";
-// import { ContactForm } from "components/ContactForm";
 import { MediaText } from "components/MediaText";
 import { ButtonPrimary } from "components/ButtonPrimary";
 import { ButtonSecondary } from "components/ButtonSecondary";

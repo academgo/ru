@@ -33,11 +33,21 @@ export const Cover = ({
         paddingLeft: getPaddingLeft(paddingLeft),
         paddingRight: getPaddingRight(paddingRight),
         position: 'relative',
-        backgroundImage: `url(${background})`, // Устанавливаем изображение как фон
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
       }}
     >
+      {/* Вставляем изображение как отдельный HTML-элемент */}
+      <Image
+        src={background} // Устанавливаем путь к изображению
+        alt="Background" // Добавляем альтернативный текст для изображения
+        width={1920} // Устанавливаем ширину изображения
+        height={1080} // Устанавливаем высоту изображения
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+      />
+
       {/* Псевдоэлемент ::before для создания накладываемого фона */}
       <div
         className="overlay"
@@ -53,7 +63,7 @@ export const Cover = ({
         }}
       ></div>
 
-      <div className="z-10">{children}</div>
+      <div className="z-10 absolute">{children}</div>
     </div>
   );
 }
