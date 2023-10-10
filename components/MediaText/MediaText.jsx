@@ -20,9 +20,10 @@ export const MediaText = ({
       <div className="flex-1">
         <Image
           src={mediaLink}
-          width={500}
-          height={500}
+          width={3000}
+          height={3000}
           alt={mediaLink}
+          // quality={100}
           // objectFit="contain"
           className="aspect-square object-cover"
         />

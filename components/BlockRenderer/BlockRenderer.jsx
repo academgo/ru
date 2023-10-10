@@ -83,6 +83,7 @@ export const BlockRenderer = ({ blocks }) => {
         return (
           <SocialIcons
             key={block.id}
+            align={block.attributes.data.align}
           />
         )
       }
@@ -262,6 +263,7 @@ export const BlockRenderer = ({ blocks }) => {
         )
       }
       case "core/media-text": {
+        console.log("MEDIA TEXT:", block.attributes);
         return (
           <MediaText
             key={block.id}

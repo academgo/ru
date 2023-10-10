@@ -1,6 +1,6 @@
-.footerBottomSocial {
+.socialIcons {
   display: flex;
-  // justify-content: space-between;
+  // justify-content: center;
   gap: 10px;
   align-items: center;
 
@@ -10,7 +10,7 @@
   }
 }
 
-.footerBottomSocialItem {
+.socialIcon {
   padding: 10px;
   background-color: #ffa800;
   transition: all 0.2s ease;
