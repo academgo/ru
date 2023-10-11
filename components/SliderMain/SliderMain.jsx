@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import {
@@ -32,26 +32,15 @@ const iconMap = {
 };
 
 export const SliderMain = ({ slides }) => {
-
-  const [showNavigation, setShowNavigation] = useState(true);
-
-  useEffect(() => {
-    // Проверяем, если количество всех слайдов меньше или равно количеству видимых слайдов, то скрываем навигацию
-    if (slides.length <= 3) { // В данном случае 3 - это количество видимых слайдов для вашего макета
-      setShowNavigation(false);
-    } else {
-      setShowNavigation(true);
-    }
-  }, [slides]);
-
   return (
     <div className={styles.sliderWrapper}>
       <div className="container">
         <Swiper
+          // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
           spaceBetween={30}
           grabCursor={true}
-          navigation={showNavigation && {
+          navigation={{
             nextEl: '.swiperButtonNext',
             prevEl: '.swiperButtonPrev',
           }}
@@ -59,6 +48,7 @@ export const SliderMain = ({ slides }) => {
             delay: 3000,
             disableOnInteraction: true,
           }}
+          // slidesPerView={1}
           breakpoints={{
             320: {
               slidesPerView: 1,
@@ -71,12 +61,9 @@ export const SliderMain = ({ slides }) => {
             },
             992: {
               slidesPerView: 3,
-              pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-              },
             },
           }}
+          slidesPerView={'auto'}
           loop={true}
         >
           {slides.map((slide) => (
@@ -116,17 +103,12 @@ export const SliderMain = ({ slides }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="swiper-pagination"></div>
-        {showNavigation && (
-          <>
-            <button className="swiperButtonPrev">
-              <FaChevronLeft color="#fff" fontSize="1.5em" />
-            </button>
-            <button className="swiperButtonNext">
-              <FaChevronRight color="#fff" fontSize="1.5em" />
-            </button>
-          </>
-        )}
+        <button className="swiperButtonPrev">
+          <FaChevronLeft color="#fff" fontSize="1.5em" />
+        </button>
+        <button className="swiperButtonNext">
+          <FaChevronRight color="#fff" fontSize="1.5em" />
+        </button>
       </div>
     </div>
   );
