@@ -32,7 +32,6 @@ export const Cover = ({
         paddingBottom: getPaddingBottom(paddingBottom),
         paddingLeft: getPaddingLeft(paddingLeft),
         paddingRight: getPaddingRight(paddingRight),
-        position: 'relative',
       }}
     >
       {/* Вставляем изображение как отдельный HTML-элемент */}

@@ -33,12 +33,12 @@ export const getAlignImage = (align) => {
 
 export const getMarginTop = (marginTop) => {
   const getMarginTopMap = {
-    "var:preset|spacing|30": "mb-8",
-    "var:preset|spacing|40": "mb-10",
-    "var:preset|spacing|50": "mb-12",
-    "var:preset|spacing|60": "mb-14",
-    "var:preset|spacing|70": "mb-16",
-    "var:preset|spacing|80": "mb-20",
+    "var:preset|spacing|30": "mt-4",
+    "var:preset|spacing|40": "mt-8",
+    "var:preset|spacing|50": "mt-12",
+    "var:preset|spacing|60": "mt-14",
+    "var:preset|spacing|70": "mt-16",
+    "var:preset|spacing|80": "mt-20",
   };
 
   return `${getMarginTopMap[marginTop] || ""}`;
@@ -46,8 +46,8 @@ export const getMarginTop = (marginTop) => {
 
 export const getMarginBottom = (marginBottom) => {
   const getMarginBottomMap = {
-    "var:preset|spacing|30": "mb-8",
-    "var:preset|spacing|40": "mb-10",
+    "var:preset|spacing|30": "mb-4",
+    "var:preset|spacing|40": "mb-8",
     "var:preset|spacing|50": "mb-12",
     "var:preset|spacing|60": "mb-14",
     "var:preset|spacing|70": "mb-16",
