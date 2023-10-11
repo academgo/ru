@@ -14,6 +14,7 @@ import { ContactForm } from "components/ContactForm";
 import { SocialIcons } from "components/SocialIcons";
 import { Tickitem } from "components/Tickitem";
 import { Carousel } from "components/Carousel";
+import { Popup } from "components/Popup";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -61,6 +62,16 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/popupbutton": {
+        // console.log("POPUP BUTTON: ", block.attributes);
+        return (
+          <Popup
+            key={block.id}
+            label={block.attributes.data.label}
+            align={block.attributes.data.align}
+          />
+        )
+      }
       case "acf/carousel": {
         const innerBlocks = objToArrayCarousel(block.attributes.data, "slides");
         // console.log("CAROUSEL: ", innerBlocks)

@@ -5,8 +5,10 @@ import Link from 'next/link';
 
 export const ButtonSecondary = ({ text, link }) => {
   return (
-    <Link href={link} className={styles.buttonSecondary}>
-      {text}
-    </Link>
+    <button className={styles.buttonSecondary}>
+      <Link href={link}>
+        {text}
+      </Link>
+    </button>
   )
 }
