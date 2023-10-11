@@ -21,7 +21,7 @@ export const Column = ({
   return (
     <div
       data-aos="fade-up" style={{ ...widthStyle, ...textColorStyle, ...backgroundColorStyle }}
-      className={`w-full ${getAlignItems(verticalAlignment)} ${getPaddingTop(paddingTop)} ${getPaddingBottom(paddingBottom)} ${getPaddingLeft(paddingLeft)} ${getPaddingRight(paddingRight)}`}>
+      className={`${getAlignItems(verticalAlignment)} ${getPaddingTop(paddingTop)} ${getPaddingBottom(paddingBottom)} ${getPaddingLeft(paddingLeft)} ${getPaddingRight(paddingRight)}`}>
       {children}
     </div>
   )
