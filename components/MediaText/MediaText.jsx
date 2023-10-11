@@ -29,7 +29,7 @@ export const MediaText = ({
         />
       </div>
       <div className="flex-1">
-        <div className="px-10 py-10 md:py-0">{children}</div>
+        <div className="px-14 py-10 md:py-0">{children}</div>
       </div>
     </div>
   )
