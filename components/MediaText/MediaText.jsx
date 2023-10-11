@@ -23,13 +23,11 @@ export const MediaText = ({
           width={3000}
           height={3000}
           alt={mediaLink}
-          // quality={100}
-          // objectFit="contain"
           className="aspect-square object-cover"
         />
       </div>
       <div className="flex-1">
-        <div className="px-10 py-10 md:py-0">{children}</div>
+        <div className="px-14 py-10 md:py-0">{children}</div>
       </div>
     </div>
   )
