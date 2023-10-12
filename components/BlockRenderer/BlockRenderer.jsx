@@ -17,6 +17,7 @@ import { Carousel } from "components/Carousel";
 import { Popup } from "components/Popup";
 import { MediaCustom } from "components/MediaCustom";
 import { SliderFeedback } from "components/SliderFeedback";
+import { AccordionBlock } from "components/AccordionBlock";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -73,6 +74,22 @@ export const BlockRenderer = ({ blocks }) => {
         review: data[`slides_${slideIndex}_slide_review`],
         date: data[`slides_${slideIndex}_slide_date`],
         place: data[`slides_${slideIndex}_slide_place`],
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
+  const objToArrayAccordion = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        question: data[`slides_${slideIndex}_slide_question`],
+        answer: data[`slides_${slideIndex}_slide_answer`],
       };
       arr.push(slide);
     }
@@ -171,7 +188,7 @@ export const BlockRenderer = ({ blocks }) => {
       }
       case "acf/sliderfeedback": {
         const innerBlocks = objToArrayFeedback(block.attributes.data, "slides");
-        console.log("SLIDER FEEDBACK: ", innerBlocks)
+        // console.log("SLIDER FEEDBACK: ", innerBlocks)
         return (
           <SliderFeedback
             key={block.id}
@@ -179,14 +196,16 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
-      // case "acf/contactform": {
-      //   // console.log("CONTACT FORM: ", block.attributes);
-      //   return (
-      //     <ContactForm
-      //       key={block.id}
-      //     />
-      //   )
-      // }
+      case "acf/accordion": {
+        const innerBlocks = objToArrayAccordion(block.attributes.data, "slides");
+        // console.log("ACCORDION: ", innerBlocks)
+        return (
+          <AccordionBlock
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
       case "core/paragraph": {
         // console.log("PARAGRAPH: ", block.attributes);
         const marginTop = block.attributes.style?.spacing?.margin?.top || '0px';
