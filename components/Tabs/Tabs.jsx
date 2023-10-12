@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './Tabs.module.scss';
 import Image from 'next/image';
+import { Popup } from 'components/Popup';
 
 const tabContentVariants = {
   initial: {
@@ -72,6 +73,7 @@ export const Tabs = ({ tabs }) => {
               <div className={styles.tabBlock}>
                 <h3 className={styles.titleFull}>{activeTab.titleFull}</h3>
                 <p className={styles.description}>{activeTab.description}</p>
+                <Popup label='learn more' />
               </div>
             </div>
           </motion.div>
