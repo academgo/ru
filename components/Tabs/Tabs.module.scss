@@ -1,0 +1,104 @@
+.tabWrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.tabHeaderWrapper {
+  width: 100%;
+  overflow-x: auto; /* Добавить горизонтальную прокрутку */
+}
+
+.tabHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.tabItem {
+  position: relative;
+  a {
+    padding: 5px 10px;
+    display: block;
+    color: #cac7c7;
+    white-space: nowrap;
+    &:hover {
+      color: #fff;
+    }
+  }
+  &.selected {
+    a {
+      color: #fff;
+    }
+  }
+}
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ffa800;
+}
+
+.tabContent {
+  flex: 1;
+  padding: 10px;
+  color: #fff;
+  height: 100%;
+  overflow: auto;
+}
+
+.tabInner {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.tabBlock {
+  flex: 1;
+  padding: 0 50px;
+
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.tabImage {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.titleFull {
+  font-size: clamp(1.625rem, 1.489rem + 0.68vw, 2rem);
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 20px;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 25px;
+    height: 3px;
+    background-color: #ffa800;
+  }
+}
+
+.description {
+  font-size: clamp(0.875rem, 0.83rem + 0.23vw, 1rem);
+  line-height: 160%;
+}

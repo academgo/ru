@@ -18,6 +18,7 @@ import { Popup } from "components/Popup";
 import { MediaCustom } from "components/MediaCustom";
 import { SliderFeedback } from "components/SliderFeedback";
 import { AccordionBlock } from "components/AccordionBlock";
+import { Tabs } from "components/Tabs";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -92,6 +93,24 @@ export const BlockRenderer = ({ blocks }) => {
         answer: data[`slides_${slideIndex}_slide_answer`],
       };
       arr.push(slide);
+    }
+
+    return arr;
+  };
+
+  const objToArrayTabs = (data) => {
+    const arr = [];
+    const tabCount = data.tabs;
+
+    for (let i = 0; i < tabCount; i++) {
+      const tabIndex = i.toString();
+      const tab = {
+        titleLittle: data[`tabs_${tabIndex}_tab_title_little`],
+        titleFull: data[`tabs_${tabIndex}_tab_title_full`],
+        description: data[`tabs_${tabIndex}_tab_description`],
+        image: data[`tabs_${tabIndex}_tab_image`],
+      };
+      arr.push(tab);
     }
 
     return arr;
@@ -203,6 +222,16 @@ export const BlockRenderer = ({ blocks }) => {
           <AccordionBlock
             key={block.id}
             slides={innerBlocks}
+          />
+        )
+      }
+      case "acf/tabs": {
+        const innerBlocks = objToArrayTabs(block.attributes.data, "tabs");
+        // console.log("TABS: ", innerBlocks)
+        return (
+          <Tabs
+            key={block.id}
+            tabs={innerBlocks}
           />
         )
       }
