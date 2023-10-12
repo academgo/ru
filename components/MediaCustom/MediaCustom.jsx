@@ -7,13 +7,15 @@ export const MediaCustom = ({ image, titleMark, title, description }) => {
     <div className={styles.mediaCustom}>
       <div className={styles.mediaCustomWrapper}>
         <div className={styles.mediaCustomImage}>
-          <Image
-            src={image}
-            alt={title}
-            width={300}
-            height={300}
-            className={styles.image}
-          />
+          {image && (
+            <Image
+              src={image}
+              alt={title}
+              width={300}
+              height={300}
+              className={styles.image}
+            />
+          )}
         </div>
         <div className={styles.mediaCustomText}>
           <h3 className={styles.mediaCustomTitle}>
