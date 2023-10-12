@@ -30,17 +30,21 @@ export const Tabs = ({ tabs }) => {
     <div className={styles.tabWrapper}>
       <div className={styles.tabHeaderWrapper}>
         <div className={styles.tabHeader}>
-          {tabs.map((tab) => (
-            <div
-              key={tab.titleLittle}
-              className={[styles.tabItem, activeTab.titleLittle === tab.titleLittle ? styles.selected : ''].join(' ')}
-            >
-              <a href='#' onClick={(e) => handleClick(e, tab)}>
-                {tab.titleLittle}
-              </a>
-              {activeTab.titleLittle === tab.titleLittle && <motion.div layoutId='indicator' className={styles.indicator} />}
-            </div>
-          ))}
+          {tabs ? (
+            tabs.map((tab) => (
+              <div
+                key={tab.titleLittle}
+                className={[styles.tabItem, activeTab.titleLittle === tab.titleLittle ? styles.selected : ''].join(' ')}
+              >
+                <a href='#' onClick={(e) => handleClick(e, tab)}>
+                  {tab.titleLittle}
+                </a>
+                {activeTab.titleLittle === tab.titleLittle && <motion.div layoutId='indicator' className={styles.indicator} />}
+              </div>
+            ))
+          ) : (
+            <p>No tabs to display</p>
+          )}
         </div>
       </div>
       <div className={styles.tabContent}>
