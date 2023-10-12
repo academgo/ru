@@ -63,18 +63,18 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
-      case "acf/mediacustom": {
-        console.log("MEDIA CUSTOM: ", block.attributes);
-        return (
-          <MediaCustom
-            key={block.id}
-            image={block.attributes.data.image}
-            titleMark={block.attributes.data.title_mark}
-            title={block.attributes.data.title}
-            description={block.attributes.data.description}
-          />
-        )
-      }
+      // case "acf/mediacustom": {
+      //   console.log("MEDIA CUSTOM: ", block.attributes);
+      //   return (
+      //     <MediaCustom
+      //       key={block.id}
+      //       image={block.attributes.data.image}
+      //       titleMark={block.attributes.data.title_mark}
+      //       title={block.attributes.data.title}
+      //       description={block.attributes.data.description}
+      //     />
+      //   )
+      // }
       case "acf/popupbutton": {
         // console.log("POPUP BUTTON: ", block.attributes);
         return (
