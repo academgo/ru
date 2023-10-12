@@ -31,16 +31,19 @@ const AccordionItem = ({ header, ...rest }) => (
 );
 
 export const AccordionBlock = ({ slides }) => {
-
   return (
     <div className={styles.accordion}>
       <Accordion transition transitionTimeout={250}>
         {slides.map((slide) => (
-          <AccordionItem key={slide.question} header={slide.question}>
-            <div className={styles.text}>{slide.answer}</div>
-          </AccordionItem>
+          slide.question ? (
+            <AccordionItem key={slide.question} header={slide.question}>
+              {slide.answer && (
+                <div className={styles.text}>{slide.answer}</div>
+              )}
+            </AccordionItem>
+          ) : null
         ))}
       </Accordion>
     </div>
-  )
-}
+  );
+};
