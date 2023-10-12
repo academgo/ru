@@ -11,15 +11,13 @@ const AccordionItem = ({ header, ...rest }) => (
     header={
       <>
         {header}
-        {chevronDown && (
-          <Image
-            className={styles.chevron}
-            src={chevronDown}
-            alt="Chevron Down"
-            width={20}
-            height={20}
-          />
-        )}
+        <Image
+          className={styles.chevron}
+          src={chevronDown}
+          alt="Chevron Down"
+          width={20}
+          height={20}
+        />
       </>
     }
     className={styles.item}
@@ -37,15 +35,17 @@ export const AccordionBlock = ({ slides }) => {
     <div className={styles.accordion}>
       <Accordion transition transitionTimeout={250}>
         {slides.map((slide) => (
-          slide.question ? (
+          slide ? (
             <AccordionItem key={slide.question} header={slide.question}>
               {slide.answer && (
                 <div className={styles.text}>{slide.answer}</div>
               )}
             </AccordionItem>
-          ) : null
+          ) : (
+            <div>Empty</div>
+          )
         ))}
       </Accordion>
     </div>
   );
-};
+}
