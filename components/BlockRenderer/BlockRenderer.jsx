@@ -16,6 +16,7 @@ import { Tickitem } from "components/Tickitem";
 import { Carousel } from "components/Carousel";
 import { Popup } from "components/Popup";
 import { MediaCustom } from "components/MediaCustom";
+import { SliderFeedback } from "components/SliderFeedback";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -61,10 +62,28 @@ export const BlockRenderer = ({ blocks }) => {
     return arr;
   };
 
+  const objToArrayFeedback = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        name: data[`slides_${slideIndex}_slide_name`],
+        review: data[`slides_${slideIndex}_slide_review`],
+        date: data[`slides_${slideIndex}_slide_date`],
+        place: data[`slides_${slideIndex}_slide_place`],
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
   return blocks.map(block => {
     switch (block.name) {
       case "acf/mediacustom": {
-        console.log("MEDIA CUSTOM: ", block.attributes);
+        // console.log("MEDIA CUSTOM: ", block.attributes);
         return (
           <MediaCustom
             key={block.id}
@@ -145,6 +164,16 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("SLIDER: ", innerBlocks)
         return (
           <SliderMain
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
+      case "acf/sliderfeedback": {
+        const innerBlocks = objToArrayFeedback(block.attributes.data, "slides");
+        console.log("SLIDER FEEDBACK: ", innerBlocks)
+        return (
+          <SliderFeedback
             key={block.id}
             slides={innerBlocks}
           />
