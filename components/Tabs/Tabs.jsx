@@ -73,7 +73,7 @@ export const Tabs = ({ tabs }) => {
               <div className={styles.tabBlock}>
                 <h3 className={styles.titleFull}>{activeTab.titleFull}</h3>
                 <p className={styles.description}>{activeTab.description}</p>
-                <Popup label='learn more' />
+                {activeTab.popup && <Popup label={activeTab.popup} />}
               </div>
             </div>
           </motion.div>
