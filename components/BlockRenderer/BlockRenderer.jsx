@@ -15,6 +15,7 @@ import { SocialIcons } from "components/SocialIcons";
 import { Tickitem } from "components/Tickitem";
 import { Carousel } from "components/Carousel";
 import { Popup } from "components/Popup";
+import { MediaCustom } from "components/MediaCustom";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -62,6 +63,18 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/mediacustom": {
+        console.log("MEDIA CUSTOM: ", block.attributes);
+        return (
+          <MediaCustom
+            key={block.id}
+            image={block.attributes.data.image}
+            titleMark={block.attributes.data.title_mark}
+            title={block.attributes.data.title}
+            description={block.attributes.data.description}
+          />
+        )
+      }
       case "acf/popupbutton": {
         // console.log("POPUP BUTTON: ", block.attributes);
         return (
@@ -274,7 +287,7 @@ export const BlockRenderer = ({ blocks }) => {
         )
       }
       case "core/media-text": {
-        console.log("MEDIA TEXT:", block.attributes);
+        // console.log("MEDIA TEXT:", block.attributes);
         return (
           <MediaText
             key={block.id}
