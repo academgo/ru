@@ -169,16 +169,16 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
-      // case "acf/sliderfeedback": {
-      //   const innerBlocks = objToArrayFeedback(block.attributes.data, "slides");
-      //   console.log("SLIDER FEEDBACK: ", innerBlocks)
-      //   return (
-      //     <SliderFeedback
-      //       key={block.id}
-      //       slides={innerBlocks}
-      //     />
-      //   )
-      // }
+      case "acf/sliderfeedback": {
+        const innerBlocks = objToArrayFeedback(block.attributes.data, "slides");
+        console.log("SLIDER FEEDBACK: ", innerBlocks)
+        return (
+          <SliderFeedback
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
       // case "acf/contactform": {
       //   // console.log("CONTACT FORM: ", block.attributes);
       //   return (

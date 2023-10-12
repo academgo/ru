@@ -30,12 +30,16 @@ export const SliderFeedback = ({ slides }) => {
               key={slide.name}
             >
               <div className={styles.slidItem}>
-                <h3 className={styles.name}>
-                  {slide.name}
-                </h3>
-                <p className={styles.review}>
-                  &quot;{slide.review}&quot;.
-                </p>
+                {slide.name && (
+                  <h3 className={styles.name}>
+                    {slide.name}
+                  </h3>
+                )}
+                {slide.review && (
+                  <p className={styles.review}>
+                    &quot;{slide.review}&quot;.
+                  </p>
+                )}
                 <p className={styles.textBottom}>{slide.date}</p>
                 <p className={styles.textBottom}>{slide.place}</p>
               </div>
