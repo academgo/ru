@@ -11,13 +11,15 @@ const AccordionItem = ({ header, ...rest }) => (
     header={
       <>
         {header}
-        <Image
-          className={styles.chevron}
-          src={chevronDown}
-          alt="Chevron Down"
-          width={20}
-          height={20}
-        />
+        {chevronDown && (
+          <Image
+            className={styles.chevron}
+            src={chevronDown}
+            alt="Chevron Down"
+            width={20}
+            height={20}
+          />
+        )}
       </>
     }
     className={styles.item}

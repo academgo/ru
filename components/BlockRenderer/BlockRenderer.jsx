@@ -196,16 +196,16 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
-      // case "acf/accordion": {
-      //   const innerBlocks = objToArrayAccordion(block.attributes.data, "slides");
-      //   // console.log("ACCORDION: ", innerBlocks)
-      //   return (
-      //     <AccordionBlock
-      //       key={block.id}
-      //       slides={innerBlocks}
-      //     />
-      //   )
-      // }
+      case "acf/accordion": {
+        const innerBlocks = objToArrayAccordion(block.attributes.data, "slides");
+        // console.log("ACCORDION: ", innerBlocks)
+        return (
+          <AccordionBlock
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
       case "core/paragraph": {
         // console.log("PARAGRAPH: ", block.attributes);
         const marginTop = block.attributes.style?.spacing?.margin?.top || '0px';
