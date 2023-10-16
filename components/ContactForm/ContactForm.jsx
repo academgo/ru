@@ -115,28 +115,28 @@ export const ContactForm = ({ buttonText }) => {
           <ErrorMessage name="name" component="div" className={styles.errorMessage} />
         </div>
 
-        {/* <div className={styles.inputWrapper}> */}
-        <div
-          className={styles.inputData}
-        >
-          <Field
-            className={styles.input}
-            type="text"
-            id="country"
-            name="country"
-            onFocus={() => setFieldStates({ ...fieldStates, country: true })}
-            onBlur={(e) => handleFieldChange('country', e.target.value)}
-          />
-          <label
-            htmlFor="country"
-            className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
+        <div className={styles.inputWrapper}>
+          <div
+            className={styles.inputData}
           >
-            Country of residence
-          </label>
-          <ErrorMessage name="country" component="div" className={styles.errorMessage} />
-        </div>
+            <Field
+              className={styles.input}
+              type="text"
+              id="country"
+              name="country"
+              onFocus={() => setFieldStates({ ...fieldStates, country: true })}
+              onBlur={(e) => handleFieldChange('country', e.target.value)}
+            />
+            <label
+              htmlFor="country"
+              className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
+            >
+              Country of residence
+            </label>
+            <ErrorMessage name="country" component="div" className={styles.errorMessage} />
+          </div>
 
-        {/* </div> */}
+        </div>
 
         <div
           className={styles.inputData}
