@@ -199,15 +199,15 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
-      // case "acf/contactformshort": {
-      //   // console.log("CONTACT FORM SHORT: ", block.attributes);
-      //   return (
-      //     <ContactFormShort
-      //       key={block.id}
-      //       buttonText={block.attributes.data.button_text}
-      //     />
-      //   )
-      // }
+      case "acf/contactformshort": {
+        // console.log("CONTACT FORM SHORT: ", block.attributes);
+        return (
+          <ContactFormShort
+            key={block.id}
+            buttonText={block.attributes.data.button_text}
+          />
+        )
+      }
       case "acf/buttonprimary": {
         // console.log("BUTTON PRIMARY: ", block.attributes);
         return (
