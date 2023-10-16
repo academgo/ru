@@ -68,6 +68,32 @@ textarea {
   border: 1px solid #fff;
 }
 
+.customButtonPrev {
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.customButtonNext {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
 /* for GallerySlider component */
 /* describe ImageGallery */
 /* .image-gallery {
@@ -123,5 +149,4 @@ textarea {
 .itemBtnExpanded .chevron {
   transform: rotate(180deg);
 }
-
 /* End accordion styling */

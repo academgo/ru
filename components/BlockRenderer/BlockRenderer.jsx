@@ -19,6 +19,7 @@ import { MediaCustom } from "components/MediaCustom";
 import { SliderFeedback } from "components/SliderFeedback";
 import { AccordionBlock } from "components/AccordionBlock";
 import { Tabs } from "components/Tabs";
+import { SliderContent } from "components/SliderContent";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -40,6 +41,28 @@ export const BlockRenderer = ({ blocks }) => {
         buttonLabelColor: data[`slides_${slideIndex}_slide_button_label_color`],
         buttonLabel: data[`slides_${slideIndex}_slide_button_label`],
         buttonDestination: data[`slides_${slideIndex}_slide_button_destination`],
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
+  const objToArraySliderContent = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        image: data[`slides_${slideIndex}_slide_image`],
+        pretitle: data[`slides_${slideIndex}_slide_pretitle`],
+        title: data[`slides_${slideIndex}_slide_title`],
+        description: data[`slides_${slideIndex}_slide_description`],
+        descriptionColor: data[`slides_${slideIndex}_slide_description_color`],
+        iconTime: data[`slides_${slideIndex}_slide_icon_time`],
+        iconCost: data[`slides_${slideIndex}_slide_icon_cost`],
+        costBig: data[`slides_${slideIndex}_slide_cost_big`],
       };
       arr.push(slide);
     }
@@ -210,6 +233,16 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("SLIDER FEEDBACK: ", innerBlocks)
         return (
           <SliderFeedback
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
+      case "acf/slidercontent": {
+        const innerBlocks = objToArraySliderContent(block.attributes.data, "slides");
+        // console.log("SLIDER CONTENT: ", innerBlocks)
+        return (
+          <SliderContent
             key={block.id}
             slides={innerBlocks}
           />

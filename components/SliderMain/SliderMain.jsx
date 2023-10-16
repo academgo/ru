@@ -51,6 +51,7 @@ export const SliderMain = ({ slides }) => {
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
           spaceBetween={30}
           grabCursor={true}
+          // pagination={{ clickable: true }}
           navigation={showNavigation && {
             nextEl: '.swiperButtonNext',
             prevEl: '.swiperButtonPrev',
