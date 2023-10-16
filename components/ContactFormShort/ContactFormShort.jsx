@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import ReactDOM from 'react-dom';
 
-import styles from './ContactForm.module.scss';
+import styles from './ContactFormShort.module.scss';
 
 const initialValues = {
   name: '',
@@ -22,7 +22,7 @@ const validationSchema = Yup.object({
   // message: Yup.string().required('Required'),
 });
 
-export const ContactForm = ({ buttonText }) => {
+export const ContactFormShort = ({ buttonText }) => {
 
   const [values, setValues] = useState(initialValues);
 
@@ -115,65 +115,45 @@ export const ContactForm = ({ buttonText }) => {
           <ErrorMessage name="name" component="div" className={styles.errorMessage} />
         </div>
 
-        <div className={styles.inputWrapper}>
-          <div
-            className={styles.inputData}
-          >
-            <Field
-              className={styles.input}
-              type="text"
-              id="country"
-              name="country"
-              onFocus={() => setFieldStates({ ...fieldStates, country: true })}
-              onBlur={(e) => handleFieldChange('country', e.target.value)}
-            />
-            <label
-              htmlFor="country"
-              className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
-            >
-              Country of residence
-            </label>
-            <ErrorMessage name="country" component="div" className={styles.errorMessage} />
-          </div>
 
-          <div
-            className={styles.inputData}
+        <div
+          className={styles.inputData}
+        >
+          <Field
+            className={styles.input}
+            type="text"
+            id="country"
+            name="country"
+            onFocus={() => setFieldStates({ ...fieldStates, country: true })}
+            onBlur={(e) => handleFieldChange('country', e.target.value)}
+          />
+          <label
+            htmlFor="country"
+            className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
           >
-            <Field
-              className={styles.input}
-              type="email"
-              id="email"
-              name="email"
-              onFocus={() => setFieldStates({ ...fieldStates, email: true })}
-              onBlur={(e) => handleFieldChange('email', e.target.value)}
-            />
-            <label
-              htmlFor="email"
-              className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
-            >
-              Email
-            </label>
-            <ErrorMessage name="email" component="div" className={styles.errorMessage} />
-          </div>
+            Country of residence
+          </label>
+          <ErrorMessage name="country" component="div" className={styles.errorMessage} />
         </div>
 
         <div
-          className={`${styles.inputData} ${styles.textarea}`}
+          className={styles.inputData}
         >
           <Field
-            as="textarea"
-            id="message"
-            name="message"
-            onFocus={() => setFieldStates({ ...fieldStates, message: true })}
-            onBlur={(e) => handleFieldChange('message', e.target.value)}
+            className={styles.input}
+            type="email"
+            id="email"
+            name="email"
+            onFocus={() => setFieldStates({ ...fieldStates, email: true })}
+            onBlur={(e) => handleFieldChange('email', e.target.value)}
           />
           <label
-            htmlFor="message"
-            className={`${styles.labelTextarea} ${fieldStates.message || initialValues.message ? styles.focused : ''}`}
+            htmlFor="email"
+            className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
           >
-            Message
+            Email
           </label>
-          <ErrorMessage name="message" component="div" className={styles.errorMessage} />
+          <ErrorMessage name="email" component="div" className={styles.errorMessage} />
         </div>
 
         <div className={styles.buttonBlock}>

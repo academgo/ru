@@ -20,6 +20,7 @@ import { SliderFeedback } from "components/SliderFeedback";
 import { AccordionBlock } from "components/AccordionBlock";
 import { Tabs } from "components/Tabs";
 import { SliderContent } from "components/SliderContent";
+import { ContactFormShort } from "components/ContactFormShort";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -193,6 +194,15 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("CONTACT FORM: ", block.attributes);
         return (
           <ContactForm
+            key={block.id}
+            buttonText={block.attributes.data.button_text}
+          />
+        )
+      }
+      case "acf/contactformshort": {
+        // console.log("CONTACT FORM SHORT: ", block.attributes);
+        return (
+          <ContactFormShort
             key={block.id}
             buttonText={block.attributes.data.button_text}
           />
