@@ -115,46 +115,47 @@ export const ContactForm = ({ buttonText }) => {
           <ErrorMessage name="name" component="div" className={styles.errorMessage} />
         </div>
 
-        <div className={styles.inputWrapper}>
-          <div
-            className={styles.inputData}
+        {/* <div className={styles.inputWrapper}> */}
+        <div
+          className={styles.inputData}
+        >
+          <Field
+            className={styles.input}
+            type="text"
+            id="country"
+            name="country"
+            onFocus={() => setFieldStates({ ...fieldStates, country: true })}
+            onBlur={(e) => handleFieldChange('country', e.target.value)}
+          />
+          <label
+            htmlFor="country"
+            className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
           >
-            <Field
-              className={styles.input}
-              type="text"
-              id="country"
-              name="country"
-              onFocus={() => setFieldStates({ ...fieldStates, country: true })}
-              onBlur={(e) => handleFieldChange('country', e.target.value)}
-            />
-            <label
-              htmlFor="country"
-              className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
-            >
-              Country of residence
-            </label>
-            <ErrorMessage name="country" component="div" className={styles.errorMessage} />
-          </div>
+            Country of residence
+          </label>
+          <ErrorMessage name="country" component="div" className={styles.errorMessage} />
+        </div>
 
-          <div
-            className={styles.inputData}
+        {/* </div> */}
+
+        <div
+          className={styles.inputData}
+        >
+          <Field
+            className={styles.input}
+            type="email"
+            id="email"
+            name="email"
+            onFocus={() => setFieldStates({ ...fieldStates, email: true })}
+            onBlur={(e) => handleFieldChange('email', e.target.value)}
+          />
+          <label
+            htmlFor="email"
+            className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
           >
-            <Field
-              className={styles.input}
-              type="email"
-              id="email"
-              name="email"
-              onFocus={() => setFieldStates({ ...fieldStates, email: true })}
-              onBlur={(e) => handleFieldChange('email', e.target.value)}
-            />
-            <label
-              htmlFor="email"
-              className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
-            >
-              Email
-            </label>
-            <ErrorMessage name="email" component="div" className={styles.errorMessage} />
-          </div>
+            Email
+          </label>
+          <ErrorMessage name="email" component="div" className={styles.errorMessage} />
         </div>
 
         <div
