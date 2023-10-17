@@ -6,6 +6,23 @@
 
 .sliderContainer {
   max-width: 600px;
+
+  @media screen and (max-width: 600px) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    max-width: 400px;
+  }
+
+  @media screen and (max-width: 400px) {
+    max-width: 350px;
+  }
+
+  @media screen and (max-width: 350px) {
+    max-width: 300px;
+  }
 }
 
 .name {
