@@ -22,6 +22,7 @@ import { Tabs } from "components/Tabs";
 import { SliderContent } from "components/SliderContent";
 import { ContactFormShort } from "components/ContactFormShort";
 import { IconBlock } from "components/IconBlock";
+import { ChildrenBlock } from "components/ChildrenBlock";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -143,6 +144,14 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/children": {
+        // console.log("CHILDREN: ", block.innerBlocks);
+        return (
+          <ChildrenBlock>
+            <BlockRenderer blocks={block.innerBlocks} />
+          </ChildrenBlock>
+        )
+      }
       case "acf/iconblock": {
         // console.log("ICON BLOCK: ", block.attributes);
         return (
