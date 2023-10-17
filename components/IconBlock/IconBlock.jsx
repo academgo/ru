@@ -17,7 +17,7 @@ export const IconBlock = ({ icon, title, text }) => {
         {icon && React.createElement(iconMap[icon], { color: "#ffa800", size: "3em" })}
       </div>
       <div className={styles.iconBlockText}>
-        <h3>{title}</h3>
+        {title && <h3 className={styles.title}>{title}</h3>}
         {text && <p className={styles.text}>{text}</p>}
       </div>
     </div>
