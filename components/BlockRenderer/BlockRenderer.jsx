@@ -21,6 +21,7 @@ import { AccordionBlock } from "components/AccordionBlock";
 import { Tabs } from "components/Tabs";
 import { SliderContent } from "components/SliderContent";
 import { ContactFormShort } from "components/ContactFormShort";
+import { IconBlock } from "components/IconBlock";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -142,6 +143,17 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/iconblock": {
+        // console.log("ICON BLOCK: ", block.attributes);
+        return (
+          <IconBlock
+            key={block.id}
+            icon={block.attributes.data.icon}
+            title={block.attributes.data.title}
+            text={block.attributes.data.text}
+          />
+        )
+      }
       case "acf/mediacustom": {
         // console.log("MEDIA CUSTOM: ", block.attributes);
         return (
