@@ -23,6 +23,7 @@ import { SliderContent } from "components/SliderContent";
 import { ContactFormShort } from "components/ContactFormShort";
 import { IconBlock } from "components/IconBlock";
 import { ChildrenBlock } from "components/ChildrenBlock";
+import { LimitWidth } from "components/LimitWidth";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -144,10 +145,18 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/limitwidth": {
+        // console.log("LIMIT WIDTH: ", block.attributes);
+        return (
+          <LimitWidth key={block.id}>
+            <BlockRenderer blocks={block.innerBlocks} />
+          </LimitWidth>
+        )
+      }
       case "acf/children": {
         // console.log("CHILDREN: ", block.innerBlocks);
         return (
-          <ChildrenBlock>
+          <ChildrenBlock key={block.id}>
             <BlockRenderer blocks={block.innerBlocks} />
           </ChildrenBlock>
         )
