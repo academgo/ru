@@ -24,6 +24,7 @@ import { ContactFormShort } from "components/ContactFormShort";
 import { IconBlock } from "components/IconBlock";
 import { ChildrenBlock } from "components/ChildrenBlock";
 import { LimitWidth } from "components/LimitWidth";
+import { IconLeftBlock } from "components/IconLeftBlock";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -145,6 +146,12 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/iconleftflex": {
+        // console.log("ICON LEFT FLEX: ", block.attributes);
+        return (
+          <IconLeftBlock key={block.id} />
+        )
+      }
       case "acf/limitwidth": {
         // console.log("LIMIT WIDTH: ", block.attributes);
         return (
