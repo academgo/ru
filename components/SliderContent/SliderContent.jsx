@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import styles from "./SliderContent.module.scss";
 import { FaRegClock, FaEuroSign, FaChevronLeft, FaChevronRight } from 'react-icons/fa'

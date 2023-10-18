@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from "./SliderFeedback.module.scss"
 // import Swiper core and required modules
