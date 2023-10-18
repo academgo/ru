@@ -103,7 +103,7 @@ export const ContactForm = ({ buttonText }) => {
         <div
           className={styles.inputData}
           data-aos="fade-up"
-          data-aos-duration="1000"
+          data-aos-duration="1005"
         >
           <Field
             className={styles.input}
