@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './IconLeftBlock.module.scss';
 import { FaTelegramPlane, FaWhatsapp, FaRegEnvelope } from "react-icons/fa";
 
 const iconMap = {

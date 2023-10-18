@@ -1,9 +1,10 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import ReactDOM from 'react-dom';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import styles from './ContactForm.module.scss';
 
 const initialValues = {
@@ -23,6 +24,10 @@ const validationSchema = Yup.object({
 });
 
 export const ContactForm = ({ buttonText }) => {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const [values, setValues] = useState(initialValues);
 
@@ -97,6 +102,8 @@ export const ContactForm = ({ buttonText }) => {
       <Form className={styles.form}>
         <div
           className={styles.inputData}
+          data-aos="fade-up"
+          data-aos-duration="1000"
         >
           <Field
             className={styles.input}
@@ -117,6 +124,8 @@ export const ContactForm = ({ buttonText }) => {
 
         <div
           className={styles.inputData}
+          data-aos="fade-up"
+          data-aos-duration="1200"
         >
           <Field
             className={styles.input}
@@ -137,6 +146,8 @@ export const ContactForm = ({ buttonText }) => {
 
         <div
           className={styles.inputData}
+          data-aos="fade-up"
+          data-aos-duration="1400"
         >
           <Field
             className={styles.input}
@@ -157,6 +168,8 @@ export const ContactForm = ({ buttonText }) => {
 
         <div
           className={`${styles.inputData} ${styles.textarea}`}
+          data-aos="fade-up"
+          data-aos-duration="1600"
         >
           <Field
             as="textarea"
@@ -174,7 +187,11 @@ export const ContactForm = ({ buttonText }) => {
           <ErrorMessage name="message" component="div" className={styles.errorMessage} />
         </div>
 
-        <div className={styles.buttonBlock}>
+        <div
+          className={styles.buttonBlock}
+          data-aos="fade-up"
+          data-aos-duration="1800"
+        >
           <button
             className={styles.button}
             type="submit"

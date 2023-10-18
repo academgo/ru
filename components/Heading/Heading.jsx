@@ -11,7 +11,8 @@ export const Heading = ({ textAlign, content, level, textColor, backgroundColor,
     dangerouslySetInnerHTML: { __html: content },
     className: `font-heading max-w-[1220px] mx-auto ${getMarginTop(marginTop)} ${getMarginBottom(marginBottom)} ${getPaddingTop(paddingTop)} ${getPaddingBottom(paddingBottom)} ${getFontSizeForHeading(level)} ${getTextAlign(textAlign)}`,
     style: { ...textColorStyle, ...backgroundColorStyle },
-    "data-aos": "fade-up"
+    "data-aos": "fade-up",
+    "data-aos-duration": "1000"
   });
   return tag;
 };
