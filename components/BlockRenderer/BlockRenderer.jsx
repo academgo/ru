@@ -149,7 +149,14 @@ export const BlockRenderer = ({ blocks }) => {
       case "acf/iconleftflex": {
         // console.log("ICON LEFT FLEX: ", block.attributes);
         return (
-          <IconLeftBlock key={block.id} />
+          <IconLeftBlock
+            key={block.id}
+            icon={block.attributes.data.icon}
+            iconColor={block.attributes.data.icon_color}
+            textStart={block.attributes.data.text_start}
+            textContinue={block.attributes.data.text_continue}
+            textData={block.attributes.data.text_data}
+          />
         )
       }
       case "acf/limitwidth": {
