@@ -14,7 +14,7 @@ export const Carousel = ({ slides }) => {
         spacing={0}
         pauseOnHover={true}
         blurBorders={true}
-        blurBoderColor={'#031f35'}
+        blurBoderColor={'#032540'}
         className={styles.slider}
       >
         {slides.map((slide) => (
