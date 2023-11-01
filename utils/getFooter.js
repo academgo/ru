@@ -6,16 +6,6 @@ export const getFooter = async () => {
       query FooterQuery {
         acfOptionsFooter {
           footer {
-            linksFaq {
-              linkFaq {
-                destination {
-                  ... on Page {
-                    uri
-                  }
-                }
-                label
-              }
-            }
             linksNavigate {
               linkNavigate {
                 label
@@ -54,7 +44,6 @@ export const getFooter = async () => {
 
   return {
     logo: data.acfOptionsFooter.footer.logo.sourceUrl,
-    linksFaq: mapFooterLinksFaq(data.acfOptionsFooter.footer.linksFaq),
     linksNavigate: mapFooterLinksNavigate(data.acfOptionsFooter.footer.linksNavigate),
     linksServices: mapFooterLinksServices(data.acfOptionsFooter.footer.linksServices),
   };

@@ -34,7 +34,6 @@ export default async function RootLayout({ children }) {
         {children}
         <TheFooter
           logo={footerData.logo}
-          linksFaq={footerData.linksFaq}
           linksNavigate={footerData.linksNavigate}
           linksServices={footerData.linksServices}
         />
