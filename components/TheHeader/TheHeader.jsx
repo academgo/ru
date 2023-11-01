@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 // import Logo from '../../assets/logo.png'
 
 import styles from './TheHeader.module.scss'
+import LanguageDropdown from 'components/LanguageDropdown/LanguageDropdown';
 
 export const TheHeader = ({ logo, items }) => {
   const [isNavVisible, setNavVisible] = useState(false);
@@ -146,10 +147,11 @@ export const TheHeader = ({ logo, items }) => {
                 </div>
               ))}
             </nav>
-            <div className={styles.langs}>
+            <LanguageDropdown />
+            {/* <div className={styles.langs}>
               <Link href="/" className={styles.langsItem}>EN</Link>
               <Link href="/" className={styles.langsItem}>RU</Link>
-            </div>
+            </div> */}
           </div>
           <div
             className={`${styles.burgerMenu} ${isNavVisible ? styles.open : ''}`}

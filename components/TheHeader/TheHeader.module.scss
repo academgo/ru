@@ -68,7 +68,7 @@
 .nav {
   transition: all ease-in-out 0.2s;
   display: flex;
-  gap: 40px;
+  gap: 25px;
 
   @media (max-width: 768px) {
     flex-direction: column;
