@@ -148,10 +148,6 @@ export const TheHeader = ({ logo, items }) => {
               ))}
             </nav>
             <LanguageDropdown />
-            {/* <div className={styles.langs}>
-              <Link href="/" className={styles.langsItem}>EN</Link>
-              <Link href="/" className={styles.langsItem}>RU</Link>
-            </div> */}
           </div>
           <div
             className={`${styles.burgerMenu} ${isNavVisible ? styles.open : ''}`}
