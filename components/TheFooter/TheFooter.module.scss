@@ -116,41 +116,57 @@
 
 .footerBottomGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr auto;
   gap: 40px;
   padding-bottom: 20px;
-
-  @media (max-width: 980px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
+.gridNavigate {
+  display: flex;
+  gap: 40px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.gridItemContent {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 .gridItemSubtitle {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 120%;
   margin-bottom: 30px;
-  color: #fff;
+  color: #ffa800;
   position: relative;
+  width: fit-content;
 
   &:after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    top: 25px;
     left: 0;
-    width: 50px;
+    width: 100%;
     height: 3px;
     background-color: #ffa800;
   }
 }
 
 .gridItemLink {
-  font-size: clamp(0.875rem, 0.83rem + 0.23vw, 1rem);
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 400;
   line-height: 120%;
   color: #fff;
   transition: all 0.2s ease;
@@ -163,6 +179,10 @@
 
 .footerBottomLogo {
   margin-bottom: 15px;
+}
+
+.logoLink {
+  display: inline-block;
 }
 
 .footerBottomLogoImage {

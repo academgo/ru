@@ -31,7 +31,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
           <div className={styles.footerBottomGrid}>
             <div className={styles.gridItem}>
               <div className={styles.footerBottomLogo}>
-                <Link href="/">
+                <Link className={styles.logoLink} href="/">
                   <Image
                     src={logo}
                     width={200}
@@ -75,24 +75,36 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
               </div>
             </div>
             <div className={styles.gridItem}>
-              <h4 className={styles.gridItemSubtitle}>Navigate</h4>
-              <ul className={styles.gridItemLinks}>
-                {linksNavigate.map((link) => (
-                  <li key={link.id} className={styles.gridItemLink}>
-                    <Link href={link.destination}>{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={styles.gridItem}>
-              <h4 className={styles.gridItemSubtitle}>Services</h4>
-              <ul className={styles.gridItemLinks}>
-                {linksServices.map((link) => (
-                  <li key={link.id} className={styles.gridItemLink}>
-                    <Link href={link.destination}>{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
+              <div className={styles.gridNavigate}>
+                <div className={styles.gridItemContent}>
+                  <div>
+                    <p className={styles.gridItemSubtitle}>Navigate</p>
+                  </div>
+                  <div>
+                    <ul className={styles.gridItemLinks}>
+                      {linksNavigate.map((link) => (
+                        <li key={link.id} className={styles.gridItemLink}>
+                          <Link href={link.destination}>{link.label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className={styles.gridItemContent}>
+                  <div>
+                    <p className={styles.gridItemSubtitle}>Services</p>
+                  </div>
+                  <div>
+                    <ul className={styles.gridItemLinks}>
+                      {linksServices.map((link) => (
+                        <li key={link.id} className={styles.gridItemLink}>
+                          <Link href={link.destination}>{link.label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className={styles.divider}></div>
