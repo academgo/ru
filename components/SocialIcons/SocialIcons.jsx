@@ -23,31 +23,31 @@ export const SocialIcons = ({ align }) => {
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaTelegramPlane fontSize="1.2em" padding="5px" color="#032540" />
+        <FaTelegramPlane fontSize="1.2em" padding="5px" fill="#fff" />
       </Link>
       <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaInstagram fontSize="1.2em" padding="5px" color="#032540" />
+        <FaInstagram fontSize="1.2em" padding="5px" fill="#fff" />
       </Link>
       <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaFacebookF fontSize="1.2em" padding="5px" color="#032540" />
+        <FaFacebookF fontSize="1.2em" padding="5px" fill="#fff" />
       </Link>
       <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaTiktok fontSize="1.2em" padding="5px" color="#032540" />
+        <FaTiktok fontSize="1.2em" padding="5px" fill="#fff" />
       </Link>
       <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaWhatsapp fontSize="1.2em" padding="5px" color="#032540" />
+        <FaWhatsapp fontSize="1.2em" padding="5px" fill="#fff" />
       </Link>
     </div>
   )

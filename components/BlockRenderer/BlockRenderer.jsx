@@ -25,6 +25,8 @@ import { IconBlock } from "components/IconBlock";
 import { ChildrenBlock } from "components/ChildrenBlock";
 import { LimitWidth } from "components/LimitWidth";
 import { IconLeftBlock } from "components/IconLeftBlock";
+import { ImageShadow } from "components/ImageShadow";
+import { ImageContent } from "components/ImageContent";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -146,6 +148,30 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/imageshadow": {
+        // console.log("IMAGE SHADOW: ", block.attributes);
+        return (
+          <ImageShadow
+            key={block.id}
+            src={block.attributes.data.image}
+          />
+        )
+      }
+      case "acf/imagecontent": {
+        // console.log("IMAGE CONTENT: ", block.attributes);
+        return (
+          <ImageContent
+            key={block.id}
+            image={block.attributes.data.image}
+            imageTitle={block.attributes.data.image_title}
+            heading={block.attributes.data.heading}
+            text={block.attributes.data.text}
+            subheading={block.attributes.data.subheading}
+          >
+            <BlockRenderer blocks={block.innerBlocks} />
+          </ImageContent>
+        )
+      }
       case "acf/iconleftflex": {
         // console.log("ICON LEFT FLEX: ", block.attributes);
         return (
