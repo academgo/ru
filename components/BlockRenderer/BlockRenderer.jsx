@@ -27,6 +27,7 @@ import { LimitWidth } from "components/LimitWidth";
 import { IconLeftBlock } from "components/IconLeftBlock";
 import { ImageShadow } from "components/ImageShadow";
 import { ImageContent } from "components/ImageContent";
+import { GiftBlock } from "components/GiftBlock";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -148,6 +149,21 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/gift": {
+        // console.log("GIFT: ", block.attributes);
+        return (
+          <GiftBlock
+            key={block.id}
+            imageBg={block.attributes.data.image_bg}
+            imageBgAlt={block.attributes.data.image_bg_alt}
+            heading={block.attributes.data.heading}
+            headingHighlight={block.attributes.data.heading_highlight}
+            description={block.attributes.data.description}
+            image={block.attributes.data.image}
+            imageAlt={block.attributes.data.image_alt}
+          />
+        )
+      }
       case "acf/imageshadow": {
         // console.log("IMAGE SHADOW: ", block.attributes);
         return (

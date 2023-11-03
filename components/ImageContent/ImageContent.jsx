@@ -5,7 +5,7 @@ import { SocialIcons } from 'components/SocialIcons'
 import { ButtonsBlock } from 'components/ButtonsBlock'
 import { ImageShadow } from 'components/ImageShadow'
 
-export const ImageContent = ({ image, alt, imageTitle, heading, text, subheading }) => {
+export const ImageContent = ({ image, imageTitle, heading, text, subheading }) => {
   return (
     <div className={styles.imageContent}>
       <div className={styles.imageBlock}>

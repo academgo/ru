@@ -1,7 +1,7 @@
 .imageContent {
   display: flex;
   gap: 40px;
-  max-height: 480px;
+  // max-height: 480px;
   box-sizing: border-box;
   margin-bottom: clamp(2.5rem, 2.045rem + 2.27vw, 3.75rem);
 
@@ -15,7 +15,7 @@
   flex: 1 0 60%;
 
   img {
-    height: 100%;
+    max-height: 480px;
     object-fit: cover;
   }
 }
