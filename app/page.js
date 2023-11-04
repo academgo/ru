@@ -13,7 +13,7 @@ export default async function Home() {
     <>
       <Script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=G-XTMLVRC9RR"
+        src="https://www.googletagmanager.com/gtag/js?id=G-Z2SGS15KPW"
       />
       <Script id='google-analytics'>
         {`
@@ -21,7 +21,7 @@ export default async function Home() {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-XTMLVRC9RR');
+          gtag('config', 'G-Z2SGS15KPW');
         `}
       </Script>
       <BlockRenderer blocks={data} />
