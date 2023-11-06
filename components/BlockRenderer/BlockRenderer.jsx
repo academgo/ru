@@ -29,6 +29,7 @@ import { ImageShadow } from "components/ImageShadow";
 import { ImageContent } from "components/ImageContent";
 import { GiftBlock } from "components/GiftBlock";
 import { Actions } from "components/Actions";
+import { SmallWidth } from "components/SmallWidth";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -165,6 +166,21 @@ export const BlockRenderer = ({ blocks }) => {
     return arr;
   };
 
+  const objToArrayItems = (data) => {
+    const arr = [];
+    const itemCount = data.items;
+
+    for (let i = 0; i < itemCount; i++) {
+      const itemIndex = i.toString();
+      const item = {
+        titleLittle: data[`items_${itemIndex}_item_item_text`]
+      };
+      arr.push(item);
+    }
+
+    return arr;
+  };
+
   return blocks.map(block => {
     switch (block.name) {
       case "acf/actionsblock": {
@@ -239,6 +255,14 @@ export const BlockRenderer = ({ blocks }) => {
           <LimitWidth key={block.id}>
             <BlockRenderer blocks={block.innerBlocks} />
           </LimitWidth>
+        )
+      }
+      case "acf/smallwidth": {
+        // console.log("LIMIT WIDTH: ", block.attributes);
+        return (
+          <SmallWidth key={block.id}>
+            <BlockRenderer blocks={block.innerBlocks} />
+          </SmallWidth>
         )
       }
       case "acf/children": {

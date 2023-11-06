@@ -5,9 +5,9 @@
   font-size: clamp(0.875rem, 0.83rem + 0.23vw, 1rem);
   border: 2px solid #ffa800;
   border-radius: 5px;
-  padding: 10px 22px;
+  padding: 10px 0;
   transition: all 0.2s ease;
-  width: fit-content;
+  width: 160px;
 
   &:hover {
     background: none;
