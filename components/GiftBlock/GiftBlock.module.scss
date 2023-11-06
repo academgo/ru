@@ -41,6 +41,7 @@
   padding: 40px 0;
   z-index: 1;
   backdrop-filter: blur(2.9px);
+  transition: all 0.2s ease-in-out;
 
   @media (max-width: 1570px) {
     width: 50%;
@@ -64,6 +65,7 @@
   }
 
   &:hover {
+    background: rgba(20, 50, 88, 0.40);
     .giftBlockImage {
       -webkit-animation: flip-scale-down-ver 0.5s linear both;
       animation: flip-scale-down-ver 0.5s linear both;

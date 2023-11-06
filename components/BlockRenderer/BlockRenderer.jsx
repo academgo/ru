@@ -28,6 +28,7 @@ import { IconLeftBlock } from "components/IconLeftBlock";
 import { ImageShadow } from "components/ImageShadow";
 import { ImageContent } from "components/ImageContent";
 import { GiftBlock } from "components/GiftBlock";
+import { Actions } from "components/Actions";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -113,6 +114,23 @@ export const BlockRenderer = ({ blocks }) => {
     return arr;
   };
 
+  const objToArrayActions = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        icon: data[`slides_${slideIndex}_slide_icon`],
+        title: data[`slides_${slideIndex}_slide_title`],
+        text: data[`slides_${slideIndex}_slide_text`]
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
   const objToArrayAccordion = (data) => {
     const arr = [];
     const slideCount = data.slides;
@@ -149,6 +167,20 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/actionsblock": {
+        const innerBlocks = objToArrayActions(block.attributes.data, "slides");
+        // console.log("ACTIONS BLOCK: ", innerBlocks)
+        return (
+          <Actions
+            key={block.id}
+            slides={innerBlocks}
+            bgImage={block.attributes.data.background_image}
+            bgImageAlt={block.attributes.data.background_image_alt}
+            heading={block.attributes.data.heading}
+            description={block.attributes.data.description}
+          />
+        )
+      }
       case "acf/gift": {
         // console.log("GIFT: ", block.attributes);
         return (
@@ -260,6 +292,16 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
+      // case "acf/actionsblock": {
+      //   const innerBlocks = objToArrayActions(block.attributes.data, "slides");
+      //   console.log("ACTIONS BLOCK: ", innerBlocks)
+      //   return (
+      //     <Actions
+      //       key={block.id}
+      //       slides={innerBlocks}
+      //     />
+      //   )
+      // }
       case "acf/tickitem": {
         return (
           <Tickitem key={block.id}>
