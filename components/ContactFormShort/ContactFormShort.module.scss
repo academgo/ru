@@ -44,9 +44,9 @@
   height: 100%;
   font-size: 15px;
   outline: none;
-  background: #3f596e;
-  border: 1px solid #0089b6;
-  border-radius: 2px;
+  background: #fff;
+  // border: 1px solid #0089b6;
+  border-radius: 5px;
   padding: 20px 40px;
   color: #fff;
   
@@ -65,7 +65,7 @@
 .inputData .label.focused {
   transform: translateY(-15px);
   font-size: 10px;
-  color: #fff;
+  // color: #fff;
 }
 
 .inputData .labelTextarea {
@@ -139,16 +139,17 @@
   font-size: 14px;
   line-height: 120%;
   letter-spacing: 3px;
-  color: #ffa800;
-  background-color: #173851;
-  border: 2px solid #ffa800;
+  color: #fff;
+  background-color: #ffa800;
+  border: 1px solid #ffa800;
+  border-radius: 5px;
   padding: 10px 0;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
 
   &:hover {
-    background-color: #ffa800;
+    background: none;
     color: #fff;
   }
 }
