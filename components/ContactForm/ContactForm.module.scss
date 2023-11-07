@@ -4,20 +4,21 @@
   // max-width: 400px;
   margin: 0 auto;
 
-  > div {
-    margin-bottom: 20px;
+  // > div {
+  //   margin-bottom: 20px;
 
-    @media screen and (max-width: 768px) {
-      margin-bottom: 10px;
-    }
+  //   @media screen and (max-width: 768px) {
+  //     margin-bottom: 10px;
+  //   }
       
-  }
+  // }
 }
 
 .inputData {
   position: relative;
   width: 100%;
   height: 40px;
+  margin-bottom: 20px;
 }
 
 .textarea {
@@ -44,9 +45,9 @@
   height: 100%;
   font-size: 15px;
   outline: none;
-  background: #3f596e;
-  border: 1px solid #0089b6;
-  border-radius: 2px;
+  background: #fff;
+  // border: 1px solid #0089b6;
+  border-radius: 5px;
   padding: 20px 40px;
   color: #fff;
   
@@ -139,16 +140,17 @@
   font-size: 14px;
   line-height: 120%;
   letter-spacing: 3px;
-  color: #ffa800;
-  background-color: #173851;
-  border: 2px solid #ffa800;
+  color: #fff;
+  background-color: #ffa800;
+  border: 1px solid #ffa800;
+  border-radius: 5px;
   padding: 10px 0;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
 
   &:hover {
-    background-color: #ffa800;
+    background: none;
     color: #fff;
   }
 }
