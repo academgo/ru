@@ -31,6 +31,7 @@ import { GiftBlock } from "components/GiftBlock";
 import { Actions } from "components/Actions";
 import { SmallWidth } from "components/SmallWidth";
 import { Price } from "components/Price";
+import { ImageShadowLeft } from "components/ImageShadowLeft";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -231,7 +232,19 @@ export const BlockRenderer = ({ blocks }) => {
         return (
           <ImageShadow
             key={block.id}
+            aspectRatio={block.attributes.data.aspect_ratio}
             src={block.attributes.data.image}
+          />
+        )
+      }
+      case "acf/imageshadowleft": {
+        // console.log("IMAGE SHADOW: ", block.attributes);
+        return (
+          <ImageShadowLeft
+            key={block.id}
+            src={block.attributes.data.image}
+            aspectRatio={block.attributes.data.aspect_ratio}
+            alt={block.attributes.data.alt}
           />
         )
       }

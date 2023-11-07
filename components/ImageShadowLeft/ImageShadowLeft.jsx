@@ -1,11 +1,11 @@
 import { getAspectRatio } from 'utils/layout'
 import React from 'react'
-import styles from './ImageShadow.module.scss'
+import styles from './ImageShadowLeft.module.scss'
 import Image from 'next/image'
 
-export const ImageShadow = ({ src, alt, aspectRatio }) => {
+export const ImageShadowLeft = ({ src, alt, aspectRatio }) => {
   return (
-    <div className={styles.imageShadow}>
+    <div className={styles.imageShadowLeft}>
       <Image
         width={1000}
         height={1000}

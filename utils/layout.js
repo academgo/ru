@@ -123,6 +123,16 @@ export const getGap = (gap) => {
   return `${getGapMap[gap] || ""}`;
 }
 
+export const getAspectRatio = (aspectRatio) => {
+  const getAspectRatioMap = {
+    "wide": "aspect-video",
+    "short": "aspect-[16/10]",
+    "auto": "aspect-auto",
+  };
+
+  return `${getAspectRatioMap[aspectRatio] || ""}`;
+}
+
 export const getOverlayColor = (overlayColor) => {
   const getOverlayColorMap = {
     base: "#ffffff",

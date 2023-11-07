@@ -12,6 +12,9 @@ module.exports = {
         heading: 'var(--font-roboto)',
         body: 'var(--font-rubik)',
       },
+      aspectRatio: {
+        '16/10': '16 / 10',
+      },
     },
   },
   plugins: [],
