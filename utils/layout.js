@@ -128,6 +128,7 @@ export const getAspectRatio = (aspectRatio) => {
     "wide": "aspect-video",
     "short": "aspect-[16/10]",
     "auto": "aspect-auto",
+    "10/7": "aspect-[10/7]",
   };
 
   return `${getAspectRatioMap[aspectRatio] || ""}`;

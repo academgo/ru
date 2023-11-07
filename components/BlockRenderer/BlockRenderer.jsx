@@ -32,6 +32,7 @@ import { Actions } from "components/Actions";
 import { SmallWidth } from "components/SmallWidth";
 import { Price } from "components/Price";
 import { ImageShadowLeft } from "components/ImageShadowLeft";
+import { BlockShadow } from "components/BlockShadow";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -290,6 +291,14 @@ export const BlockRenderer = ({ blocks }) => {
           <SmallWidth key={block.id}>
             <BlockRenderer blocks={block.innerBlocks} />
           </SmallWidth>
+        )
+      }
+      case "acf/blockshadow": {
+        // console.log("BLOCK SHADOW: ", block.attributes);
+        return (
+          <BlockShadow key={block.id}>
+            <BlockRenderer blocks={block.innerBlocks} />
+          </BlockShadow>
         )
       }
       case "acf/children": {
