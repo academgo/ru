@@ -30,6 +30,7 @@ import { ImageContent } from "components/ImageContent";
 import { GiftBlock } from "components/GiftBlock";
 import { Actions } from "components/Actions";
 import { SmallWidth } from "components/SmallWidth";
+import { Price } from "components/Price";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -172,9 +173,7 @@ export const BlockRenderer = ({ blocks }) => {
 
     for (let i = 0; i < itemCount; i++) {
       const itemIndex = i.toString();
-      const item = {
-        titleLittle: data[`items_${itemIndex}_item_item_text`]
-      };
+      const item = data[`items_${itemIndex}_item_item_text`]; // Extract the "item" property
       arr.push(item);
     }
 
@@ -183,6 +182,21 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/priceblock": {
+        const innerBlocks = objToArrayItems(block.attributes.data, "items");
+        // console.log("PRICE BLOCK: ", innerBlocks)
+        return (
+          <Price
+            key={block.id}
+            icon={block.attributes.data.icon}
+            heading={block.attributes.data.heading}
+            text={block.attributes.data.text}
+            items={innerBlocks}
+            cost={block.attributes.data.cost}
+            subtext={block.attributes.data.subtext}
+          />
+        )
+      }
       case "acf/actionsblock": {
         const innerBlocks = objToArrayActions(block.attributes.data, "slides");
         // console.log("ACTIONS BLOCK: ", innerBlocks)

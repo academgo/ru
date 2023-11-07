@@ -1,0 +1,30 @@
+.roundIcon {
+  border: 1px solid #FFA800;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #143258;
+
+  // @media screen and (max-width: 600px) {
+  //   width: 65px;
+  //   height: 65px;
+  //   top: 0;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  // }
+}
+
+.image {
+  max-height: 70px;
+  max-width: 70px;
+  object-fit: contain;
+
+  // @media screen and (max-width: 600px) {
+  //   max-height: 35px;
+  //   max-width: 35px;
+  // }
+}
