@@ -92,7 +92,9 @@ export const BlockRenderer = ({ blocks }) => {
       const slide = {
         image: data[`slides_${slideIndex}_slide_image`],
         alt: data[`slides_${slideIndex}_slide_alt`],
-        ratio: data[`slides_${slideIndex}_slide_ratio`],
+        aspectRatio: data[`slides_${slideIndex}_slide_ratio`],
+        objectFit: data[`slides_${slideIndex}_slide_object_fit`],
+        background: data[`slides_${slideIndex}_slide_background`],
       };
       arr.push(slide);
     }
@@ -192,6 +194,7 @@ export const BlockRenderer = ({ blocks }) => {
             key={block.id}
             icon={block.attributes.data.icon}
             heading={block.attributes.data.heading}
+            headingSmall={block.attributes.data.heading_small}
             text={block.attributes.data.text}
             items={innerBlocks}
             cost={block.attributes.data.cost}
@@ -235,6 +238,7 @@ export const BlockRenderer = ({ blocks }) => {
             key={block.id}
             aspectRatio={block.attributes.data.aspect_ratio}
             src={block.attributes.data.image}
+            alt={block.attributes.data.alt}
           />
         )
       }

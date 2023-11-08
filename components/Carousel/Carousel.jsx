@@ -1,4 +1,5 @@
 'use client';
+import { getAspectRatio, getObjectFit } from 'utils/layout'
 import React from 'react'
 import styles from './Carousel.module.scss';
 import Slider from 'react-infinite-logo-slider'
@@ -9,7 +10,7 @@ export const Carousel = ({ slides }) => {
     <div className={styles.carousel}>
       {/* <div className="container"> */}
       <Slider
-        width="400px"
+        width="300px"
         duration={30}
         spacing={0}
         pauseOnHover={true}
@@ -23,16 +24,15 @@ export const Carousel = ({ slides }) => {
           >
             <div
               className={styles.slideContent}
-              style={{
-                aspectRatio: slide.ratio,
-              }}
             >
               {slide.image && (
                 <Image
                   src={slide.image}
                   alt={slide.alt}
-                  fill
-                  className="object-contain"
+                  width={500}
+                  height={500}
+                  className={`${getAspectRatio(slide.aspectRatio)} ${getObjectFit(slide.objectFit)} ${styles.image}`}
+                  style={{ backgroundColor: slide.background }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               )}

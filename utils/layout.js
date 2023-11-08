@@ -127,11 +127,22 @@ export const getAspectRatio = (aspectRatio) => {
   const getAspectRatioMap = {
     "wide": "aspect-video",
     "short": "aspect-[16/10]",
+    "square": "aspect-square",
     "auto": "aspect-auto",
     "10/7": "aspect-[10/7]",
   };
 
   return `${getAspectRatioMap[aspectRatio] || ""}`;
+}
+
+export const getObjectFit = (objectFit) => {
+  const getObjectFitMap = {
+    "cover": "object-cover",
+    "contain": "object-contain",
+  };
+
+  return `${getObjectFitMap[objectFit] || ""}`;
+
 }
 
 export const getOverlayColor = (overlayColor) => {

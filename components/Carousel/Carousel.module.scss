@@ -21,4 +21,9 @@
   align-items: center;
   font-size: clamp(0.75rem, 0.659rem + 0.45vw, 1rem);
   overflow: hidden;
+  margin-right: 40px;
+}
+
+.image {
+  border-radius: 15px;
 }
