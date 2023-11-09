@@ -4,7 +4,7 @@ export const theme = {
   primary: "#031f35",
   secondary: "#ffa800",
   tertiary: "#032540",
-  slate: "#2b7258",
+  slate: "#143258",
   "greenlight": "#2b7258",
   "yellowlight": "#ffd77e",
   "gray": "#cac7c7",

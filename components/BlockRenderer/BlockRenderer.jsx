@@ -33,6 +33,8 @@ import { SmallWidth } from "components/SmallWidth";
 import { Price } from "components/Price";
 import { ImageShadowLeft } from "components/ImageShadowLeft";
 import { BlockShadow } from "components/BlockShadow";
+import { MediaLeftBlock } from "components/MediaLeftBlock";
+import { MediaRightBlock } from "components/MediaRightBlock";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -186,6 +188,42 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/medialeftblock": {
+        const innerBlocks = objToArrayItems(block.attributes.data, "items");
+        // console.log("MEDIA LEFT: ", innerBlocks)
+        return (
+          <MediaLeftBlock
+            key={block.id}
+            image={block.attributes.data.image}
+            pretitle={block.attributes.data.pretitle}
+            title={block.attributes.data.title}
+            textStart={block.attributes.data.text_start}
+            items={innerBlocks}
+            textEnd={block.attributes.data.text_end}
+            linkLabel={block.attributes.data.link_link_label}
+            linkDestination={block.attributes.data.link_link_destination}
+            buttonLabel={block.attributes.data.button_label}
+          />
+        )
+      }
+      case "acf/mediarightblock": {
+        const innerBlocks = objToArrayItems(block.attributes.data, "items");
+        // console.log("MEDIA RIGHT: ", innerBlocks)
+        return (
+          <MediaRightBlock
+            key={block.id}
+            image={block.attributes.data.image}
+            pretitle={block.attributes.data.pretitle}
+            title={block.attributes.data.title}
+            textStart={block.attributes.data.text_start}
+            items={innerBlocks}
+            textEnd={block.attributes.data.text_end}
+            linkLabel={block.attributes.data.link_link_label}
+            linkDestination={block.attributes.data.link_link_destination}
+            buttonLabel={block.attributes.data.button_label}
+          />
+        )
+      }
       case "acf/priceblock": {
         const innerBlocks = objToArrayItems(block.attributes.data, "items");
         // console.log("PRICE BLOCK: ", innerBlocks)
