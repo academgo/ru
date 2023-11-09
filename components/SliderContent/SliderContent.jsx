@@ -1,5 +1,5 @@
 'use client';
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from "./SliderContent.module.scss";
 import { FaRegClock, FaEuroSign, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { AiFillClockCircle, AiFillEuroCircle } from "react-icons/ai";
@@ -14,6 +14,14 @@ import { Popup } from 'components/Popup';
 
 export const SliderContent = ({ slides }) => {
 
+  const blockRef = useRef(null);
+
+  useEffect(() => {
+    const blockElements = document.querySelectorAll(`.${styles.slideItemContent}`);
+    const maxHeight = Math.max(...Array.from(blockElements, (el) => el.clientHeight));
+    Array.from(blockElements, (el) => (el.style.height = `${maxHeight}px`));
+  }, []);
+
   return (
     <div className={styles.sliderContent}>
       <div className="container">
@@ -21,14 +29,14 @@ export const SliderContent = ({ slides }) => {
           modules={[Navigation, Pagination, A11y, Autoplay]}
           spaceBetween={30}
           grabCursor={true}
+          slidesPerView={1}
           // pagination={{ clickable: true }}
           navigation={{
             nextEl: '.customButtonPrev',
             prevEl: '.customButtonPrev',
           }}
           autoplay={{
-            delay: 3000,
-            disableOnInteraction: true,
+            delay: 3500,
           }}
           breakpoints={{
             320: {
@@ -55,31 +63,27 @@ export const SliderContent = ({ slides }) => {
                   <Image
                     src={slide.image}
                     alt={slide.title}
-                    width={500}
-                    height={500}
+                    width={200}
+                    height={200}
                     className={styles.image}
                   />
                 </div>
-                <div className={styles.slideItemContent}>
-                  <p className={styles.pretitle}>{slide.pretitle}</p>
+                <div ref={blockRef} className={styles.slideItemContent}>
                   <h3 className={styles.title}>{slide.title}</h3>
+                  <p className={styles.pretitle}>{slide.pretitle}</p>
                   <p style={{ color: slide.descriptionColor }} className={styles.description}>{slide.description}</p>
                   {slide.iconTime && <div className={styles.icon}><AiFillClockCircle fontSize="1.3rem" color="#ffa800" /> {slide.iconTime}</div>}
                   {slide.iconCost && <div className={styles.icon}><AiFillEuroCircle fontSize="1.3rem" color="#ffa800" /> from {slide.iconCost}€/Year</div>}
                   {slide.costBig && <p className={styles.costBig}>from {slide.costBig}€/Year</p>}
+                  <div className={styles.popupBlock}>
+                    <Popup label='learn more' />
+                  </div>
                 </div>
-                {<Popup /> && <Popup label='learn more' />}
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
         <div className="swiper-pagination"></div>
-        <button className="customButtonPrev">
-          <FaChevronLeft color="#fff" fontSize="1.5em" />
-        </button>
-        <button className="customButtonNext">
-          <FaChevronRight color="#fff" fontSize="1.5em" />
-        </button>
       </div>
     </div>
   )
