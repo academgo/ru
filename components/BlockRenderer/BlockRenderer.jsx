@@ -35,6 +35,7 @@ import { ImageShadowLeft } from "components/ImageShadowLeft";
 import { BlockShadow } from "components/BlockShadow";
 import { MediaLeftBlock } from "components/MediaLeftBlock";
 import { MediaRightBlock } from "components/MediaRightBlock";
+import { AccordionBeauty } from "components/AccordionBeauty";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -493,6 +494,16 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("ACCORDION: ", innerBlocks)
         return (
           <AccordionBlock
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
+      case "acf/accordionbeauty": {
+        const innerBlocks = objToArrayAccordion(block.attributes.data, "slides");
+        // console.log("ACCORDION: ", innerBlocks)
+        return (
+          <AccordionBeauty
             key={block.id}
             slides={innerBlocks}
           />
