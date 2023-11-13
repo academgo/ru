@@ -26,13 +26,17 @@ export const SliderContent = ({ slides }) => {
     <div className={styles.sliderContent}>
       <div className="container">
         <Swiper
+          className={styles.slider}
           modules={[Navigation, Pagination, A11y, Autoplay]}
           spaceBetween={30}
           grabCursor={true}
           slidesPerView={1}
-          // pagination={{ clickable: true }}
+          pagination={{
+            clickable: true,
+            el: '.swiper-pagination',
+          }}
           navigation={{
-            nextEl: '.customButtonPrev',
+            nextEl: '.customButtonNext',
             prevEl: '.customButtonPrev',
           }}
           autoplay={{

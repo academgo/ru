@@ -130,7 +130,7 @@ export const BlockRenderer = ({ blocks }) => {
     for (let i = 0; i < slideCount; i++) {
       const slideIndex = i.toString();
       const slide = {
-        icon: data[`slides_${slideIndex}_slide_icon`],
+        number: data[`slides_${slideIndex}_slide_number`],
         title: data[`slides_${slideIndex}_slide_title`],
         text: data[`slides_${slideIndex}_slide_text`]
       };

@@ -22,6 +22,10 @@
   gap: 2.5rem;
   // width: 100%; /* Добавьте это, чтобы установить ширину wrapper на 100% */
   margin-bottom: clamp(1.25rem, 1.023rem + 1.14vw, 1.875rem);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .mediaCustomImage {
@@ -38,9 +42,9 @@
     // border-radius: 50%;
   }
 
-  @media (max-width: 550px) {
-    display: none;;
-  }
+  // @media (max-width: 550px) {
+  //   display: none;;
+  // }
 }
 
 .mediaCustomText {

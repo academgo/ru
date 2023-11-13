@@ -147,6 +147,11 @@ export const TheHeader = ({ logo, items }) => {
                 </div>
               ))}
             </nav>
+            <div className={styles.languageMobile}>
+              <LanguageDropdown />
+            </div>
+          </div>
+          <div className={styles.languageDesktop}>
             <LanguageDropdown />
           </div>
           <div

@@ -24,7 +24,7 @@ export const Cover = ({
 
   return (
     <div
-      className="h-screen relative min-h-[400px] flex justify-center items-center"
+      className="h-screen relative min-h-[400px] flex justify-center items-center overflow-hidden"
       style={{
         height: minHeight,
         marginBottom: getMarginBottom(marginBottom),
@@ -45,6 +45,7 @@ export const Cover = ({
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            filter: 'blur(3px)',
           }}
         />
       )}
@@ -64,7 +65,7 @@ export const Cover = ({
         }}
       ></div>
 
-      <div className="z-10 absolute">{children}</div>
+      <div className="z-10 absolute px-4 md:px-0">{children}</div>
     </div>
   );
 }

@@ -22,6 +22,14 @@
     -moz-box-shadow: 15px 15px 0px 1px rgba(255, 168, 0, 1);
     box-shadow: 15px 15px 0px 1px rgba(255, 168, 0, 1);
   }
+
+  @media (max-width: 768px) {
+    &:hover {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
 }
 
 .heading {

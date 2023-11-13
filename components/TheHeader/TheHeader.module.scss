@@ -31,7 +31,7 @@
 
 .headerWpapper {
   display: flex;
-  // justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
   gap: clamp(0.313rem, -5.799rem + 12.73vw, 3.75rem);
   @media (max-width: 768px) {
@@ -60,11 +60,11 @@
 }
 
 .headerMenu {
-  flex-grow: 1;
+  // flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  // gap: 90px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -153,6 +153,21 @@
     &:hover {
       color: #f9f9f9;
     }
+  }
+}
+
+.languageDesktop {
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+}
+.languageMobile {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
   }
 }
 
