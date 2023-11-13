@@ -3,6 +3,7 @@ import { getPage } from "utils/getPage"
 import { notFound } from 'next/navigation'
 import { getSeo } from "utils/getSeo";
 import Script from "next/script";
+import FacebookPixel from "./FacebookPixel";
 
 export default async function Home() {
   const data = await getPage('/');
@@ -24,6 +25,7 @@ export default async function Home() {
           gtag('config', 'G-XTMLVRC9RR');
         `}
       </Script>
+      <FacebookPixel />
       <BlockRenderer blocks={data} />
     </>
   );
