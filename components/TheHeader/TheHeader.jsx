@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { MdClose, MdDensityMedium, MdDehaze } from "react-icons/md";
 import { FaAlignRight } from 'react-icons/fa'
 import { gsap } from 'gsap'
@@ -17,9 +18,9 @@ export const TheHeader = ({ logo, items }) => {
   const [isNavVisible, setNavVisible] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState('');
-
   // State for showing/hiding the modal
   const [isContactModalOpen, setContactModalOpen] = useState(false);
+  const pathname = usePathname();
 
   // Add a function to toggle the modal state
   const toggleContactModal = () => {
@@ -102,50 +103,55 @@ export const TheHeader = ({ logo, items }) => {
           </div>
           <div className={`${styles.headerMenu} ${isNavVisible ? styles.navVisible : ''}`} onClick={closeMenu}>
             <nav className={styles.nav}>
-              {(items || []).map((item) => (
-                <div key={item.id} className={styles.navList}>
-                  <div className={styles.navListItem}>
-                    <div className={styles.linkWrapper}>
-                      <div className={styles.destination}>
-                        <Link
-                          href={item.destination || ""}
-                          className={styles.navLink}
-                          onClick={closeMenu}
-                        >
-                          {item.label}
-                        </Link>
+              {(items || []).map((item) => {
+                const trimmedPathname = pathname.replace(/\/$/, "").toLowerCase();
+                const trimmedDestination = item.destination.replace(/\/$/, "").toLowerCase();
+                const isActive = trimmedPathname === trimmedDestination;
+                return (
+                  <div key={item.id} className={styles.navList}>
+                    <div className={styles.navListItem}>
+                      <div className={styles.linkWrapper}>
+                        <div className={styles.destination}>
+                          <Link
+                            href={item.destination || ""}
+                            className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+                            onClick={closeMenu}
+                          >
+                            {item.label}
+                          </Link>
+                        </div>
+                        {!!item.subMenuItems && item.subMenuItems.length > 0 && (
+                          <div
+                            className={`${styles['sub-menu-arrow']} ${openSubMenus.includes(item.id) ? styles.open : ''
+                              }`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleSubMenu(item.id);
+                            }}
+                          />
+                        )}
                       </div>
                       {!!item.subMenuItems && item.subMenuItems.length > 0 && (
                         <div
-                          className={`${styles['sub-menu-arrow']} ${openSubMenus.includes(item.id) ? styles.open : ''
+                          className={`${styles['sub-menu']} ${openSubMenus.includes(item.id) ? styles['sub-menu-open'] : ''
                             }`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            toggleSubMenu(item.id);
-                          }}
-                        />
+                        >
+                          {item.subMenuItems.map((subMenuItem) => (
+                            <Link
+                              href={subMenuItem.destination}
+                              key={subMenuItem.id}
+                              className={styles['sub-menu-item']}
+                              onClick={closeMenu}
+                            >
+                              {subMenuItem.label}
+                            </Link>
+                          ))}
+                        </div>
                       )}
                     </div>
-                    {!!item.subMenuItems && item.subMenuItems.length > 0 && (
-                      <div
-                        className={`${styles['sub-menu']} ${openSubMenus.includes(item.id) ? styles['sub-menu-open'] : ''
-                          }`}
-                      >
-                        {item.subMenuItems.map((subMenuItem) => (
-                          <Link
-                            href={subMenuItem.destination}
-                            key={subMenuItem.id}
-                            className={styles['sub-menu-item']}
-                            onClick={closeMenu}
-                          >
-                            {subMenuItem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </nav>
             <div className={styles.languageMobile}>
               <LanguageDropdown />

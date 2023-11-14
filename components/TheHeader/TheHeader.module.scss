@@ -149,11 +149,38 @@
     font-size: 50px;
   }
 
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ffa800;
+    transition: all ease-in-out 0.2s;
+  }
+
+  &:hover {
+    @media (min-width: 768px) {
+      color: #ffa800;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     font-size: 1.5rem;
     &:hover {
       color: #f9f9f9;
     }
+  }
+}
+
+.navLinkActive {
+  color: #ffa800;
+
+  &::after {
+    width: 100%;
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './SocialIcons.module.scss'
+import styles from './SocialIconsBig.module.scss'
 import {
   FaTelegramPlane,
   FaWhatsapp,
@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fa'
 import Link from 'next/link'
 
-export const SocialIcons = ({ align }) => {
+export const SocialIconsBig = ({ align }) => {
 
   const alignMap = {
     left: "justify-start",
@@ -23,31 +23,31 @@ export const SocialIcons = ({ align }) => {
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaTelegramPlane fontSize="1.2em" padding="5px" fill="#fff" />
+        <FaTelegramPlane fontSize="2em" padding="5px" fill="#fff" />
       </Link> */}
       <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaInstagram fontSize="1.2em" padding="5px" fill="#fff" />
+        <FaInstagram fontSize="2em" padding="5px" fill="#fff" />
       </Link>
       <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaFacebookF fontSize="1.2em" padding="5px" fill="#fff" />
+        <FaFacebookF fontSize="2em" padding="5px" fill="#fff" />
       </Link>
       <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaTiktok fontSize="1.2em" padding="5px" fill="#fff" />
+        <FaTiktok fontSize="2em" padding="5px" fill="#fff" />
       </Link>
       <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
         className={styles.socialIcon}
       >
-        <FaWhatsapp fontSize="1.2em" padding="5px" fill="#fff" />
+        <FaWhatsapp fontSize="2em" padding="5px" fill="#fff" />
       </Link>
     </div>
   )

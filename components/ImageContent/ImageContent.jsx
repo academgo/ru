@@ -13,9 +13,9 @@ export const ImageContent = ({ image, imageTitle, heading, text, subheading }) =
         {/* <Image width={1000} height={1000} src={image} alt={imageTitle} /> */}
       </div>
       <div className={styles.contentBlock}>
-        <div className={styles.text}>
+        <div className={styles.text} style={{ whiteSpace: 'pre-line' }}>
           <h3>{heading}</h3>
-          <p>{text}</p>
+          <div className={styles.textArea} dangerouslySetInnerHTML={{ __html: text }} />
         </div>
         <div className={styles.elements}>
           <h3>{subheading}</h3>

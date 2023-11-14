@@ -36,6 +36,7 @@ import { BlockShadow } from "components/BlockShadow";
 import { MediaLeftBlock } from "components/MediaLeftBlock";
 import { MediaRightBlock } from "components/MediaRightBlock";
 import { AccordionBeauty } from "components/AccordionBeauty";
+import { SocialIconsBig } from "components/SocialIconsBig";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -416,6 +417,15 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("SOCIAL ICONS: ", block.attributes);
         return (
           <SocialIcons
+            key={block.id}
+            align={block.attributes.data.align}
+          />
+        )
+      }
+      case "acf/socialiconsbig": {
+        // console.log("SOCIAL ICONS BIG: ", block.attributes);
+        return (
+          <SocialIconsBig
             key={block.id}
             align={block.attributes.data.align}
           />

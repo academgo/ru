@@ -1,0 +1,21 @@
+.socialIcons {
+  display: flex;
+  // justify-content: center;
+  gap: 10px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+}
+
+.socialIcon {
+  padding: 10px;
+  background-color: #ffa800;
+  transition: all 0.2s ease;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #ab8437;
+  }
+}
