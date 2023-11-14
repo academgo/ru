@@ -37,6 +37,7 @@ import { MediaLeftBlock } from "components/MediaLeftBlock";
 import { MediaRightBlock } from "components/MediaRightBlock";
 import { AccordionBeauty } from "components/AccordionBeauty";
 import { SocialIconsBig } from "components/SocialIconsBig";
+import { SliderImages } from "components/SliderImages";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -80,6 +81,22 @@ export const BlockRenderer = ({ blocks }) => {
         iconTime: data[`slides_${slideIndex}_slide_icon_time`],
         iconCost: data[`slides_${slideIndex}_slide_icon_cost`],
         costBig: data[`slides_${slideIndex}_slide_cost_big`],
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
+  const objToArraySliderImages = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        image: data[`slides_${slideIndex}_slide_image`],
+        title: data[`slides_${slideIndex}_slide_title`],
       };
       arr.push(slide);
     }
@@ -494,6 +511,16 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("SLIDER CONTENT: ", innerBlocks)
         return (
           <SliderContent
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
+      case "acf/sliderimages": {
+        const innerBlocks = objToArraySliderImages(block.attributes.data, "slides");
+        // console.log("SLIDER IMAGES: ", innerBlocks)
+        return (
+          <SliderImages
             key={block.id}
             slides={innerBlocks}
           />
