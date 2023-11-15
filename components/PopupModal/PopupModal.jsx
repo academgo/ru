@@ -6,6 +6,7 @@ import styles from './PopupModal.module.scss';
 import { ContactForm } from 'components/ContactForm';
 
 import { SocialIconsBig } from 'components/SocialIconsBig';
+import { SocialIcons } from 'components/SocialIcons';
 
 const customStyles = {
   overlay: {
@@ -69,7 +70,7 @@ const PopupModal = ({ isOpen, onClose }) => {
                 <ContactForm
                   buttonText="Send"
                 />
-                <SocialIconsBig />
+                <SocialIcons />
               </div>
             </div>
           </div>
