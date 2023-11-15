@@ -78,9 +78,9 @@ const PopupModalGift = ({ isOpen, onClose }) => {
                 <ContactFormShort
                   buttonText="Send"
                 />
-                <div className={styles.socialIcons}>
+                {/* <div className={styles.socialIcons}>
                   <SocialIconsBig />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
