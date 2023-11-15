@@ -12,7 +12,8 @@
 }
 
 .parallaxContainer img {
-  // display: block;
+  display: block;
+  object-fit: cover;
 }
 
 .overlay {

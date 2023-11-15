@@ -1,7 +1,19 @@
+'use client';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import styles from './ParallaxBlock.module.scss';
 
 const ParallaxImage = ({ image, title }) => {
+
+  useEffect(() => {
+    (
+      async () => {
+        const LocomotiveScroll = (await import('locomotive-scroll')).default
+        const locomotiveScroll = new LocomotiveScroll();
+      }
+    )()
+  }, [])
+
   return (
     <div className={styles.parallaxContainer}>
       <Image
@@ -9,7 +21,6 @@ const ParallaxImage = ({ image, title }) => {
         src={image}
         alt={title}
         fill
-        objectFit="cover"
       />
       {/* Псевдоэлемент ::before для создания накладываемого фона */}
       <div

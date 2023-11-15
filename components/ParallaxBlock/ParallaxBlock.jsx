@@ -6,14 +6,7 @@ import { Popup } from 'components/Popup';
 
 export const ParallaxBlock = ({ image, title, text }) => {
 
-  useEffect(() => {
-    (
-      async () => {
-        const LocomotiveScroll = (await import('locomotive-scroll')).default
-        const locomotiveScroll = new LocomotiveScroll();
-      }
-    )()
-  }, [])
+
 
   return (
     <div className={styles.parallaxBlock}>
