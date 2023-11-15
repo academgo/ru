@@ -2,10 +2,11 @@
 import React from 'react'
 import Modal from 'react-modal';
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from './PopupModal.module.scss';
+import styles from './PopupModalGift.module.scss';
 import { ContactForm } from 'components/ContactForm';
 
 import { SocialIconsBig } from 'components/SocialIconsBig';
+import { ContactFormShort } from 'components/ContactFormShort';
 
 const customStyles = {
   overlay: {
@@ -26,7 +27,7 @@ const customStyles = {
   },
 };
 
-const PopupModal = ({ isOpen, onClose }) => {
+const PopupModalGift = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       <Modal
@@ -46,7 +47,7 @@ const PopupModal = ({ isOpen, onClose }) => {
             className={styles.popupContent}>
             <div className={styles.popupContentWrapper}>
               <div className={styles.imageBlock}>
-                <img className={styles.mainImage} src="/assets/form-image1.png" alt="form image" />
+                <img className={styles.mainImage} src="/assets/form-image2.jpg" alt="form image" />
                 {/* Псевдоэлемент ::before для создания накладываемого фона */}
                 <div
                   className={styles.overlay}
@@ -65,11 +66,21 @@ const PopupModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
               <div className={styles.formBlock}>
-                <h2 className={styles.popupTitle}>Contact us</h2>
-                <ContactForm
+                <h2 className={styles.popupTitle}>Free Guide</h2>
+                <p className={styles.popupSubtitle}>About the easiest way to educationand relocation to Europe.</p>
+                <p className={styles.text}>You will find there:</p>
+                <ul className={styles.list}>
+                  <li className={styles.listItem}>How to choose university</li>
+                  <li className={styles.listItem}>Detailed admission instructions</li>
+                  <li className={styles.listItem}>List of required documents</li>
+                  <li className={styles.listItem}>How to apply for a visa</li>
+                </ul>
+                <ContactFormShort
                   buttonText="Send"
                 />
-                <SocialIconsBig />
+                <div className={styles.socialIcons}>
+                  <SocialIconsBig />
+                </div>
               </div>
             </div>
           </div>
@@ -84,4 +95,4 @@ const PopupModal = ({ isOpen, onClose }) => {
   );
 }
 
-export default PopupModal;
+export default PopupModalGift;

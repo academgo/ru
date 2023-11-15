@@ -1,6 +1,7 @@
 "use client";
 import { PopupButton } from 'components/PopupButton';
 import PopupModal from 'components/PopupModal/PopupModal';
+import PopupModalGift from 'components/PopupModalGift/PopupModalGift';
 import React, { useState } from 'react';
 
 export const Popup = ({ label, align }) => {
@@ -13,6 +14,17 @@ export const Popup = ({ label, align }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const normalizelabel = label.toLowerCase();
+
+  if (normalizelabel === 'get a guide') {
+    return (
+      <div>
+        <PopupButton label={label} align={align} onOpenPopup={openModal} />
+        <PopupModalGift isOpen={isModalOpen} onClose={closeModal} />
+      </div>
+    );
+  }
 
   return (
     <div>
