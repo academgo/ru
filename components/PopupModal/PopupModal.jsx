@@ -46,7 +46,7 @@ const PopupModal = ({ isOpen, onClose }) => {
             className={styles.popupContent}>
             <div className={styles.popupContentWrapper}>
               <div className={styles.imageBlock}>
-                <img className={styles.mainImage} src="/assets/form-image1.png" alt="form image" />
+                <img className={styles.mainImage} src="/assets/form-image1.webp" alt="form image" />
                 {/* Псевдоэлемент ::before для создания накладываемого фона */}
                 <div
                   className={styles.overlay}
