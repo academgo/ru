@@ -6,6 +6,7 @@ import { getFooter } from 'utils/getFooter';
 import { TheHeader } from 'components/TheHeader';
 import { TheFooter } from 'components/TheFooter';
 import CookieConsent from 'components/CookieConsent/CookieConsent';
+import { ScrollToTopButton } from 'components/ScrollToTopButton';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -39,6 +40,7 @@ export default async function RootLayout({ children }) {
           linksServices={footerData.linksServices}
         />
         <CookieConsent />
+        <ScrollToTopButton />
       </body>
     </html>
   );

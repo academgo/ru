@@ -1,0 +1,15 @@
+.scrollToTopButton {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  // color: #fff;
+  cursor: pointer;
+  background-color: #ffa800;
+  border-radius: 50%;
+  padding: 3px;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+}
