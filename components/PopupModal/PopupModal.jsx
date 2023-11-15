@@ -48,6 +48,18 @@ const PopupModal = ({ isOpen, onClose }) => {
             <div className={styles.popupContentWrapper}>
               <div className={styles.imageBlock}>
                 <img className={styles.mainImage} src="/assets/form-image1.png" alt="form image" />
+                {/* Псевдоэлемент ::before для создания накладываемого фона */}
+                <div
+                  className={styles.overlay}
+                  style={{
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                  }}
+                />
                 <div className={styles.imageContent}>
                   <h3 className={styles.imageContentTitle}>Start your journey</h3>
                   <img className={styles.imageContentLogo} src="/assets/logo-academgo.webp" alt="logo" />
