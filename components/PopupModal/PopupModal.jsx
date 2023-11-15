@@ -5,14 +5,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './PopupModal.module.scss';
 import { ContactForm } from 'components/ContactForm';
 
+import formImage from '../../assets/form-image1.png';
+import { SocialIconsBig } from 'components/SocialIconsBig';
+
 const customStyles = {
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(20, 50, 88, 0.7)',
     zIndex: 999,
   },
   content: {
     position: 'relative',
-    backgroundColor: '#141319',
+    backgroundColor: 'rgba(20, 50, 88, 0.7)',
     padding: '20px',
     width: '100%',
     height: '100%',
@@ -42,10 +45,22 @@ const PopupModal = ({ isOpen, onClose }) => {
         >
           <div
             className={styles.popupContent}>
-            <h2 className={styles.popupTitle}>Contact us</h2>
-            <ContactForm
-              buttonText="Send message"
-            />
+            <div className={styles.popupContentWrapper}>
+              <div className={styles.imageBlock}>
+                <img className={styles.mainImage} src="/assets/form-image1.png" alt="form image" />
+                <div className={styles.imageContent}>
+                  <h3 className={styles.imageContentTitle}>Start your journey</h3>
+                  <img className={styles.imageContentLogo} src="/assets/logo-academgo.webp" alt="logo" />
+                </div>
+              </div>
+              <div className={styles.formBlock}>
+                <h2 className={styles.popupTitle}>Contact us</h2>
+                <ContactForm
+                  buttonText="Send"
+                />
+                <SocialIconsBig />
+              </div>
+            </div>
           </div>
         </motion.div>
         <button className={styles.closeButton} onClick={onClose}>
