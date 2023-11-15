@@ -67,7 +67,7 @@ const PopupModalGift = ({ isOpen, onClose }) => {
               </div>
               <div className={styles.formBlock}>
                 <h2 className={styles.popupTitle}>Free Guide</h2>
-                <p className={styles.popupSubtitle}>About the easiest way to educationand relocation to Europe.</p>
+                <p className={styles.popupSubtitle}>About the easiest way to education and relocation to Europe.</p>
                 <p className={styles.text}>You will find there:</p>
                 <ul className={styles.list}>
                   <li className={styles.listItem}>How to choose university</li>
