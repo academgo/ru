@@ -38,6 +38,7 @@ import { MediaRightBlock } from "components/MediaRightBlock";
 import { AccordionBeauty } from "components/AccordionBeauty";
 import { SocialIconsBig } from "components/SocialIconsBig";
 import { SliderImages } from "components/SliderImages";
+import { ParallaxBlock } from "components/ParallaxBlock";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -207,6 +208,17 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/parallaxblock": {
+        // console.log("PARALLAX: ", block.attributes);
+        return (
+          <ParallaxBlock
+            key={block.id}
+            image={block.attributes.data.image}
+            title={block.attributes.data.title}
+            text={block.attributes.data.text}
+          />
+        )
+      }
       case "acf/medialeftblock": {
         const innerBlocks = objToArrayItems(block.attributes.data, "items");
         // console.log("MEDIA LEFT: ", innerBlocks)
@@ -413,16 +425,6 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
-      // case "acf/actionsblock": {
-      //   const innerBlocks = objToArrayActions(block.attributes.data, "slides");
-      //   console.log("ACTIONS BLOCK: ", innerBlocks)
-      //   return (
-      //     <Actions
-      //       key={block.id}
-      //       slides={innerBlocks}
-      //     />
-      //   )
-      // }
       case "acf/tickitem": {
         return (
           <Tickitem key={block.id}>

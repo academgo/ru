@@ -1,0 +1,35 @@
+.parallaxBlock {
+  position: relative;
+  height: 500px; /* Выберите высоту, которая подходит для вашего дизайна */
+  overflow: hidden;
+}
+
+.parallaxContainer {
+  position: relative;
+  width: 100%;
+  height: 900px; /* Выберите высоту, которая подходит для вашего дизайна */
+  overflow: hidden;
+}
+
+.parallaxContainer img {
+  // display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px; /* Выберите высоту, которая подходит для вашего дизайна */
+  opacity: 0.8;
+  background: #032540;
+}
+
+.parallaxContent {
+  text-align: center;
+  max-width: 50%;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
+}
