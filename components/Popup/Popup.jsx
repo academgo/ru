@@ -4,7 +4,7 @@ import PopupModal from 'components/PopupModal/PopupModal';
 import React, { useState } from 'react';
 
 export const Popup = ({ label, align }) => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
