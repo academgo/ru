@@ -93,108 +93,111 @@ export const ContactForm = ({ buttonText }) => {
   };
 
   return (
-    <Formik initialValues={initialValues} validationSchema={validationSchema} validateOnBlur onSubmit={onSubmit}>
-      <Form className={styles.form}>
-        <div
-          className={styles.inputData}
-          data-aos="fade-up"
-          data-aos-duration="1005"
-        >
-          <Field
-            className={styles.input}
-            type="text"
-            id="name"
-            name="name"
-            onFocus={() => setFieldStates({ ...fieldStates, name: true })}
-            onBlur={(e) => handleFieldChange('name', e.target.value)}
-          />
-          <label
-            htmlFor="name"
-            className={`${styles.label} ${fieldStates.name || initialValues.name ? styles.focused : ''}`}
+    <div className={styles.formWrapper}>
+      <Formik initialValues={initialValues} validationSchema={validationSchema} validateOnBlur onSubmit={onSubmit}>
+        <Form className={styles.form}>
+          <div
+            className={styles.inputData}
+            data-aos="fade-up"
+            data-aos-duration="1005"
           >
-            Full name
-          </label>
-          <ErrorMessage name="name" component="div" className={styles.errorMessage} />
-        </div>
+            <Field
+              className={styles.input}
+              type="text"
+              id="name"
+              name="name"
+              onFocus={() => setFieldStates({ ...fieldStates, name: true })}
+              onBlur={(e) => handleFieldChange('name', e.target.value)}
+            />
+            <label
+              htmlFor="name"
+              className={`${styles.label} ${fieldStates.name || initialValues.name ? styles.focused : ''}`}
+            >
+              Full name
+            </label>
+            <ErrorMessage name="name" component="div" className={styles.errorMessage} />
+          </div>
 
-        <div
-          className={styles.inputData}
-          data-aos="fade-up"
-          data-aos-duration="1200"
-        >
-          <Field
-            className={styles.input}
-            type="text"
-            id="country"
-            name="country"
-            onFocus={() => setFieldStates({ ...fieldStates, country: true })}
-            onBlur={(e) => handleFieldChange('country', e.target.value)}
-          />
-          <label
-            htmlFor="country"
-            className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
+          <div
+            className={styles.inputData}
+            data-aos="fade-up"
+            data-aos-duration="1200"
           >
-            Country of residence
-          </label>
-          <ErrorMessage name="country" component="div" className={styles.errorMessage} />
-        </div>
+            <Field
+              className={styles.input}
+              type="text"
+              id="country"
+              name="country"
+              onFocus={() => setFieldStates({ ...fieldStates, country: true })}
+              onBlur={(e) => handleFieldChange('country', e.target.value)}
+            />
+            <label
+              htmlFor="country"
+              className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
+            >
+              Country of residence
+            </label>
+            <ErrorMessage name="country" component="div" className={styles.errorMessage} />
+          </div>
 
-        <div
-          className={styles.inputData}
-          data-aos="fade-up"
-          data-aos-duration="1400"
-        >
-          <Field
-            className={styles.input}
-            type="email"
-            id="email"
-            name="email"
-            onFocus={() => setFieldStates({ ...fieldStates, email: true })}
-            onBlur={(e) => handleFieldChange('email', e.target.value)}
-          />
-          <label
-            htmlFor="email"
-            className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
+          <div
+            className={styles.inputData}
+            data-aos="fade-up"
+            data-aos-duration="1400"
           >
-            Email
-          </label>
-          <ErrorMessage name="email" component="div" className={styles.errorMessage} />
-        </div>
+            <Field
+              className={styles.input}
+              type="email"
+              id="email"
+              name="email"
+              onFocus={() => setFieldStates({ ...fieldStates, email: true })}
+              onBlur={(e) => handleFieldChange('email', e.target.value)}
+            />
+            <label
+              htmlFor="email"
+              className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
+            >
+              Email
+            </label>
+            <ErrorMessage name="email" component="div" className={styles.errorMessage} />
+          </div>
 
-        <div
-          className={`${styles.inputData} ${styles.textarea}`}
-          data-aos="fade-up"
-          data-aos-duration="1600"
-        >
-          <Field
-            as="textarea"
-            id="message"
-            name="message"
-            onFocus={() => setFieldStates({ ...fieldStates, message: true })}
-            onBlur={(e) => handleFieldChange('message', e.target.value)}
-          />
-          <label
-            htmlFor="message"
-            className={`${styles.labelTextarea} ${fieldStates.message || initialValues.message ? styles.focused : ''}`}
+          <div
+            className={`${styles.inputData} ${styles.textarea}`}
+            data-aos="fade-up"
+            data-aos-duration="1600"
           >
-            Message
-          </label>
-          <ErrorMessage name="message" component="div" className={styles.errorMessage} />
-        </div>
+            <Field
+              as="textarea"
+              id="message"
+              name="message"
+              onFocus={() => setFieldStates({ ...fieldStates, message: true })}
+              onBlur={(e) => handleFieldChange('message', e.target.value)}
+            />
+            <label
+              htmlFor="message"
+              className={`${styles.labelTextarea} ${fieldStates.message || initialValues.message ? styles.focused : ''}`}
+            >
+              Message
+            </label>
+            <ErrorMessage name="message" component="div" className={styles.errorMessage} />
+          </div>
 
-        <div
-          className={styles.buttonBlock}
-          data-aos="fade-up"
-          data-aos-duration="1800"
-        >
-          <button
-            className={styles.button}
-            type="submit"
+          <div
+            className={styles.buttonBlock}
+            data-aos="fade-up"
+            data-aos-duration="1800"
           >
-            {buttonText}
-          </button>
-        </div>
-      </Form>
-    </Formik>
+            <button
+              className={styles.button}
+              type="submit"
+            >
+              {buttonText}
+            </button>
+          </div>
+        </Form>
+      </Formik>
+      <MessagePopup isOpen={isMessageSent} />
+    </div>
   );
 };
