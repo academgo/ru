@@ -69,6 +69,7 @@ const PopupModal = ({ isOpen, onClose }) => {
                 <h2 className={styles.popupTitle}>Contact us</h2>
                 <ContactForm
                   buttonText="Send"
+                  onSubmitSuccess={onClose}
                 />
                 <SocialIcons />
               </div>
