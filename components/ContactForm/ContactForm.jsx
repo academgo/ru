@@ -115,7 +115,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText }) => {
               htmlFor="name"
               className={`${styles.label} ${fieldStates.name || initialValues.name ? styles.focused : ''}`}
             >
-              Name
+              Full name
             </label>
             <ErrorMessage name="name" component="div" className={styles.errorMessage} />
           </div>
@@ -134,7 +134,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText }) => {
                 htmlFor="country"
                 className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
               >
-                Country
+                Country of residence
               </label>
               <ErrorMessage name="country" component="div" className={styles.errorMessage} />
             </div>

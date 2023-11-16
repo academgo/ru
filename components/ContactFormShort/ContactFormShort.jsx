@@ -1,37 +1,31 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import ReactDOM from 'react-dom';
-
+import axios from 'axios';
 import styles from './ContactFormShort.module.scss';
 
 const initialValues = {
   name: '',
   country: '',
-  phone: '',
   email: '',
-  message: '',
 };
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Required'),
   country: Yup.string().required('Required'),
-  phone: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email address').required('Required'),
-  // message: Yup.string().required('Required'),
+  email: Yup.string().email('Invalid Email adress').required('Required'),
 });
 
-export const ContactFormShort = ({ buttonText }) => {
+export const ContactFormShort = ({ onSubmitSuccess, buttonText }) => {
 
   const [values, setValues] = useState(initialValues);
 
   const [fieldStates, setFieldStates] = useState({
     name: false,
     country: false,
-    phone: false,
     email: false,
-    message: false,
   });
 
   const [isMessageSent, setIsMessageSent] = useState(false);
@@ -46,7 +40,7 @@ export const ContactFormShort = ({ buttonText }) => {
 
   const onSubmit = async (values, { resetForm }) => {
     try {
-      await axios.post('/api/contact', values); // Отправляем данные формы на сервер
+      await axios.post('/api/contacts', values); // Отправляем данные формы на сервер
       // Здесь вы можете добавить код для обработки успешной отправки, например, очистка формы или вывод сообщения пользователю
       console.log('Форма успешно отправлена!');
       resetForm(); // Сбрасываем значения полей формы к исходным значениям
@@ -78,11 +72,11 @@ export const ContactFormShort = ({ buttonText }) => {
         <div className={styles.messagePopup}>
           <div className={styles.messageContent}>
             <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 20 20" fill="none">
-              <path d="M15 7L7.99998 14L4.99994 11M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#001A72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M15 7L7.99998 14L4.99994 11M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#ffa800" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             <div className={styles.messageTextWrapper}>
               <h3 className={styles.messageTitle}>Thank you!</h3>
-              <p className={styles.messageText}>I received your message and will contact you soon.</p>
+              <p className={styles.messageText}>We received your message and contact soon.</p>
             </div>
             {/* <button onClick={closeMessagePopup}>Close</button> */}
           </div>
@@ -93,78 +87,84 @@ export const ContactFormShort = ({ buttonText }) => {
   };
 
   return (
-    <Formik initialValues={initialValues} validationSchema={validationSchema} validateOnBlur onSubmit={onSubmit}>
-      <Form className={styles.form}>
-        <div
-          className={styles.inputData}
-        >
-          <Field
-            className={styles.input}
-            type="text"
-            id="name"
-            name="name"
-            onFocus={() => setFieldStates({ ...fieldStates, name: true })}
-            onBlur={(e) => handleFieldChange('name', e.target.value)}
-          />
-          <label
-            htmlFor="name"
-            className={`${styles.label} ${fieldStates.name || initialValues.name ? styles.focused : ''}`}
+    <div className={styles.formWrapper}>
+      <Formik initialValues={initialValues} validationSchema={validationSchema} validateOnBlur onSubmit={onSubmit}>
+        <Form className={styles.form}>
+          <div
+            className={styles.inputData}
+            data-aos="fade-up"
+            data-aos-duration="1000"
           >
-            Full name
-          </label>
-          <ErrorMessage name="name" component="div" className={styles.errorMessage} />
-        </div>
+            <Field
+              className={styles.input}
+              type="text"
+              id="name"
+              name="name"
+              onFocus={() => setFieldStates({ ...fieldStates, name: true })}
+              onBlur={(e) => handleFieldChange('name', e.target.value)}
+            />
+            <label
+              htmlFor="name"
+              className={`${styles.label} ${fieldStates.name || initialValues.name ? styles.focused : ''}`}
+            >
+              Full name
+            </label>
+            <ErrorMessage name="name" component="div" className={styles.errorMessage} />
+          </div>
 
+          <div className={styles.inputWrapper}>
+            <div className={styles.inputData}>
+              <Field
+                className={styles.input}
+                type="text"
+                id="country"
+                name="country"
+                onFocus={() => setFieldStates({ ...fieldStates, country: true })}
+                onBlur={(e) => handleFieldChange('country', e.target.value)}
+              />
+              <label
+                htmlFor="country"
+                className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
+              >
+                Country of residence
+              </label>
+              <ErrorMessage name="country" component="div" className={styles.errorMessage} />
+            </div>
+          </div>
 
-        <div
-          className={styles.inputData}
-        >
-          <Field
-            className={styles.input}
-            type="text"
-            id="country"
-            name="country"
-            onFocus={() => setFieldStates({ ...fieldStates, country: true })}
-            onBlur={(e) => handleFieldChange('country', e.target.value)}
-          />
-          <label
-            htmlFor="country"
-            className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
+          <div
+            className={styles.inputData}
+            data-aos="fade-up"
+            data-aos-duration="1400"
           >
-            Country of residence
-          </label>
-          <ErrorMessage name="country" component="div" className={styles.errorMessage} />
-        </div>
+            <Field
+              className={styles.input}
+              type="email"
+              id="email"
+              name="email"
+              onFocus={() => setFieldStates({ ...fieldStates, email: true })}
+              onBlur={(e) => handleFieldChange('email', e.target.value)}
+            />
+            <label
+              htmlFor="email"
+              className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
+            >
+              Email
+            </label>
+            <ErrorMessage name="email" component="div" className={styles.errorMessage} />
+          </div>
 
-        <div
-          className={styles.inputData}
-        >
-          <Field
-            className={styles.input}
-            type="email"
-            id="email"
-            name="email"
-            onFocus={() => setFieldStates({ ...fieldStates, email: true })}
-            onBlur={(e) => handleFieldChange('email', e.target.value)}
-          />
-          <label
-            htmlFor="email"
-            className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
-          >
-            Email
-          </label>
-          <ErrorMessage name="email" component="div" className={styles.errorMessage} />
-        </div>
-
-        <div className={styles.buttonBlock}>
-          <button
-            className={styles.button}
-            type="submit"
-          >
-            {buttonText}
-          </button>
-        </div>
-      </Form>
-    </Formik>
+          <div className={styles.buttonBlock}>
+            <button
+              className={styles.button}
+              type="submit"
+            >
+              {buttonText}
+            </button>
+          </div>
+        </Form>
+      </Formik>
+      <MessagePopup isOpen={isMessageSent} />
+    </div>
   );
 };
