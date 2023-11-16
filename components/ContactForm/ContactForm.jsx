@@ -22,7 +22,7 @@ const validationSchema = Yup.object({
   // message: Yup.string().required('Required'),
 });
 
-export const ContactForm = ({ buttonText }) => {
+export const ContactForm = ({ onSubmitSuccess }) => {
 
   const [values, setValues] = useState(initialValues);
 
@@ -192,7 +192,7 @@ export const ContactForm = ({ buttonText }) => {
               className={styles.button}
               type="submit"
             >
-              {buttonText}
+              Send
             </button>
           </div>
         </Form>
