@@ -23,7 +23,7 @@ const validationSchema = Yup.object({
   message: Yup.string().required('Required'),
 });
 
-export const ContactForm = ({ onSubmitSuccess, buttonText }) => {
+export const ContactForm = ({ onSubmitSuccess, buttonText, onClose }) => {
 
   const [values, setValues] = useState(initialValues);
 
@@ -59,6 +59,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText }) => {
       // Call the onSubmitSuccess callback after successful form submission
       if (isMessageSent) {
         onSubmitSuccess();
+        onClose(); // Close the main modal after successful submission
       }
 
       setTimeout(() => {
