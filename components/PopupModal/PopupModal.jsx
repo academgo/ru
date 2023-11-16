@@ -27,13 +27,7 @@ const customStyles = {
   },
 };
 
-const PopupModal = ({ isOpen, onClose }) => {
-
-  const handleFormSubmit = () => {
-    // Close the modal after form submission
-    onClose();
-  };
-
+const PopupModal = ({ isOpen, onClose, onMessageVisibility }) => {
   return (
     <AnimatePresence>
       <Modal
@@ -75,8 +69,7 @@ const PopupModal = ({ isOpen, onClose }) => {
                 <h2 className={styles.popupTitle}>Contact us</h2>
                 <ContactForm
                   buttonText="Send"
-                  onSubmitSuccess={handleFormSubmit}
-                  onClose={onClose}
+                  onMessageVisibility={onMessageVisibility}
                 />
                 <SocialIcons />
               </div>

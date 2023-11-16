@@ -23,7 +23,7 @@ const validationSchema = Yup.object({
   message: Yup.string().required('Required'),
 });
 
-export const ContactForm = ({ onSubmitSuccess, buttonText, onClose }) => {
+export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }) => {
 
   const [values, setValues] = useState(initialValues);
 
@@ -59,11 +59,11 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onClose }) => {
       // Call the onSubmitSuccess callback after successful form submission
       if (isMessageSent) {
         onSubmitSuccess();
-        onClose(); // Close the main modal after successful submission
       }
 
       setTimeout(() => {
         setIsMessageVisible(false);
+        onMessageVisibility(false);
       }, 5000); // Hide the message popup after 5 seconds
     } catch (error) {
       console.error('Ошибка при отправке формы:', error);

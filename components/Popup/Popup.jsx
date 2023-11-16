@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 
 export const Popup = ({ label, align }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -15,13 +16,20 @@ export const Popup = ({ label, align }) => {
     setIsModalOpen(false);
   };
 
+  const handleFormMessageVisibility = (isVisible) => {
+    setIsMessageVisible(isVisible);
+    if (!isVisible) {
+      closeModal(); // Close the modal when the form message disappears
+    }
+  };
+
   const normalizelabel = label.toLowerCase();
 
   if (normalizelabel === 'get a guide') {
     return (
       <div>
         <PopupButton label={label} align={align} onOpenPopup={openModal} />
-        <PopupModalGift isOpen={isModalOpen} onClose={closeModal} />
+        <PopupModalGift isOpen={isModalOpen} onClose={closeModal} onMessageVisibility={handleFormMessageVisibility} />
       </div>
     );
   }
@@ -29,7 +37,7 @@ export const Popup = ({ label, align }) => {
   return (
     <div>
       <PopupButton label={label} align={align} onOpenPopup={openModal} />
-      <PopupModal isOpen={isModalOpen} onClose={closeModal} />
+      <PopupModal isOpen={isModalOpen} onClose={closeModal} onMessageVisibility={handleFormMessageVisibility} />
     </div>
   );
 }
