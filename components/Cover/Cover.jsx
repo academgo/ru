@@ -45,7 +45,7 @@ export const Cover = ({
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            filter: 'blur(3px)',
+            filter: 'blur(2px)',
           }}
         />
       )}

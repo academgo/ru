@@ -21,7 +21,7 @@ const LanguageDropdown = () => {
         {selectedLanguage}
       </div>
       <div className={styles.dropdownMenu}>
-        <Link href="#" className={styles.dropdownItem} onClick={() => selectLanguage('EN')}>EN</Link>
+        {/* <Link href="#" className={styles.dropdownItem} onClick={() => selectLanguage('EN')}>EN</Link> */}
         <Link href="#" className={styles.dropdownItem} onClick={() => selectLanguage('RU')}>RU</Link>
       </div>
     </div>

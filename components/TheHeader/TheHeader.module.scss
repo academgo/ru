@@ -195,9 +195,20 @@
   display: none;
 
   @media (max-width: 768px) {
-    display: block;
-    margin-right: auto;
-    padding-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.socialMobile {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

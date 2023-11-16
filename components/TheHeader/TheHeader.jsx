@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 import styles from './TheHeader.module.scss'
 import LanguageDropdown from 'components/LanguageDropdown/LanguageDropdown';
+import { SocialIcons } from 'components/SocialIcons'
 
 export const TheHeader = ({ logo, items }) => {
   const [isNavVisible, setNavVisible] = useState(false);
@@ -155,6 +156,9 @@ export const TheHeader = ({ logo, items }) => {
             </nav>
             <div className={styles.languageMobile}>
               <LanguageDropdown />
+            </div>
+            <div className={styles.socialMobile}>
+              <SocialIcons />
             </div>
           </div>
           <div className={styles.languageDesktop}>

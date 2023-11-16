@@ -42,32 +42,37 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
                 </Link>
               </div>
               <div className={styles.footerBottomSocial}>
-                <Link
+                {/* <Link
                   href="https://t.me/+zLBhFlT7W1Q0MWM0"
+                  target='_blank'
                   className={styles.footerBottomSocialItem}
                 >
                   <FaTelegramPlane fontSize="1.2em" padding="5px" fill="#fff" />
-                </Link>
+                </Link> */}
                 <Link
-                  href="https://t.me/+zLBhFlT7W1Q0MWM0"
+                  href="https://www.instagram.com/academgo.en/"
+                  target='_blank'
                   className={styles.footerBottomSocialItem}
                 >
                   <FaInstagram fontSize="1.2em" padding="5px" fill="#fff" />
                 </Link>
                 <Link
-                  href="https://t.me/+zLBhFlT7W1Q0MWM0"
+                  href="https://www.facebook.com/profile.php?id=100090953012689"
+                  target='_blank'
                   className={styles.footerBottomSocialItem}
                 >
                   <FaFacebookF fontSize="1.2em" padding="5px" fill="#fff" />
                 </Link>
                 <Link
-                  href="https://t.me/+zLBhFlT7W1Q0MWM0"
+                  href="https://www.tiktok.com/@academgo.en"
+                  target='_blank'
                   className={styles.footerBottomSocialItem}
                 >
                   <FaTiktok fontSize="1.2em" padding="5px" fill="#fff" />
                 </Link>
                 <Link
-                  href="https://t.me/+zLBhFlT7W1Q0MWM0"
+                  href="https://api.whatsapp.com/send/?phone=48505118058&text&type=phone_number&app_absent=0"
+                  target='_blank'
                   className={styles.footerBottomSocialItem}
                 >
                   <FaWhatsapp fontSize="1.2em" padding="5px" fill="#fff" />

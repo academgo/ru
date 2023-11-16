@@ -21,30 +21,35 @@ export const SocialIcons = ({ align }) => {
     <div className={`${styles.socialIcons} ${alignMap[align]}`}>
       {/* <Link
         href="https://t.me/+zLBhFlT7W1Q0MWM0"
+        target='_blank'
         className={styles.socialIcon}
       >
         <FaTelegramPlane fontSize="1.2em" padding="5px" fill="#fff" />
       </Link> */}
       <Link
-        href="https://t.me/+zLBhFlT7W1Q0MWM0"
+        href="https://www.instagram.com/academgo.en/"
+        target='_blank'
         className={styles.socialIcon}
       >
         <FaInstagram fontSize="1.2em" padding="5px" fill="#fff" />
       </Link>
       <Link
-        href="https://t.me/+zLBhFlT7W1Q0MWM0"
+        href="https://www.facebook.com/profile.php?id=100090953012689"
+        target='_blank'
         className={styles.socialIcon}
       >
         <FaFacebookF fontSize="1.2em" padding="5px" fill="#fff" />
       </Link>
       <Link
-        href="https://t.me/+zLBhFlT7W1Q0MWM0"
+        href="https://www.tiktok.com/@academgo.en"
+        target='_blank'
         className={styles.socialIcon}
       >
         <FaTiktok fontSize="1.2em" padding="5px" fill="#fff" />
       </Link>
       <Link
-        href="https://t.me/+zLBhFlT7W1Q0MWM0"
+        href="https://api.whatsapp.com/send/?phone=48505118058&text&type=phone_number&app_absent=0"
+        target='_blank'
         className={styles.socialIcon}
       >
         <FaWhatsapp fontSize="1.2em" padding="5px" fill="#fff" />
