@@ -27,7 +27,7 @@ const customStyles = {
   },
 };
 
-const PopupModalGift = ({ isOpen, onClose }) => {
+const PopupModalGift = ({ isOpen, onClose, onMessageVisibility }) => {
   return (
     <AnimatePresence>
       <Modal
@@ -77,6 +77,7 @@ const PopupModalGift = ({ isOpen, onClose }) => {
                 </ul>
                 <ContactFormShort
                   buttonText="Send"
+                  onMessageVisibility={onMessageVisibility}
                 />
                 {/* <div className={styles.socialIcons}>
                   <SocialIconsBig />

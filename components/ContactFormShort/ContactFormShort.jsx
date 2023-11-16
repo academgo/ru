@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
   email: Yup.string().email('Invalid Email adress').required('Required'),
 });
 
-export const ContactFormShort = ({ onSubmitSuccess, buttonText }) => {
+export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibility }) => {
 
   const [values, setValues] = useState(initialValues);
 
@@ -55,6 +55,7 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText }) => {
 
       setTimeout(() => {
         setIsMessageVisible(false);
+        onMessageVisibility(false);
       }, 5000); // Hide the message popup after 5 seconds
     } catch (error) {
       console.error('Ошибка при отправке формы:', error);
