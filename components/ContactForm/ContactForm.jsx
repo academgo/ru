@@ -2,9 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 import ReactDOM from 'react-dom';
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
 import styles from './ContactForm.module.scss';
 
 const initialValues = {
@@ -24,10 +23,6 @@ const validationSchema = Yup.object({
 });
 
 export const ContactForm = ({ buttonText }) => {
-
-  // useEffect(() => {
-  //   AOS.init();
-  // }, []);
 
   const [values, setValues] = useState(initialValues);
 
