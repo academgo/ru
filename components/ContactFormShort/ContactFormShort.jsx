@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ContactFormShort.module.scss';
 
 const initialValues = {
@@ -69,20 +70,27 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
     // if (!isOpen) return null;
 
     return ReactDOM.createPortal(
-      <div className={styles.popupContainer}>
-        <div className={styles.messagePopup}>
-          <div className={styles.messageContent}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 20 20" fill="none">
-              <path d="M15 7L7.99998 14L4.99994 11M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#ffa800" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <div className={styles.messageTextWrapper}>
-              <h3 className={styles.messageTitle}>Thank you!</h3>
-              <p className={styles.messageText}>We received your message and contact soon.</p>
+      <AnimatePresence>
+        <div className={styles.popupContainer}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            className={styles.messagePopup}>
+            <div className={styles.messageContent}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 20 20" fill="none">
+                <path d="M15 7L7.99998 14L4.99994 11M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#ffa800" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div className={styles.messageTextWrapper}>
+                <h3 className={styles.messageTitle}>Thank you!</h3>
+                <p className={styles.messageText}>We received your message and contact soon.</p>
+              </div>
+              {/* <button onClick={closeMessagePopup}>Close</button> */}
             </div>
-            {/* <button onClick={closeMessagePopup}>Close</button> */}
-          </div>
+          </motion.div>
         </div>
-      </div>,
+      </AnimatePresence>,
       document.body
     );
   };
