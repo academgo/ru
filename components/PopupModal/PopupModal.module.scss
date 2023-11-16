@@ -46,7 +46,7 @@
 .mainImage {
   border-radius: 15px;
   border: 4px solid #FFA800;
-  aspect-ratio: 10/6;
+  aspect-ratio: 16/9;
 
   @media screen and (max-width: 880px) {
     aspect-ratio: 1/1;
@@ -123,7 +123,7 @@
 
 .formBlock {
   position: absolute;
-  top: -30px;
+  top: -20px;
   left: 40%;
   width: 55%;
   border-radius: 15px;

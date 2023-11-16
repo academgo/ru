@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { name, country, phone, email, message } = req.body;
+      const { name, country, email, message } = req.body;
 
       // Создаем транспорт для отправки почты (замените данными вашего почтового сервера)
       const transporter = nodemailer.createTransport({
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         from: email,
         to: 'academgo.info@gmail.com',
         subject: `New message from ${name} - Academgo`,
-        text: `${message}\n\nContact Details:\nName: ${name}\nCountry: ${country}\nPhone: ${phone}\nEmail: ${email}`,
+        text: `${message}\n\nContact Details:\nName: ${name}\nCountry: ${country}\nEmail: ${email}`,
       };
 
       // Отправляем письмо
