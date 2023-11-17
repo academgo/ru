@@ -39,7 +39,12 @@ export const AccordionBlock = ({ slides }) => {
           slide ? (
             <AccordionItem key={slide.question} header={slide.question}>
               {slide.answer && (
-                <div className={styles.text}>{slide.answer}</div>
+                <div
+                  className={styles.text}
+                  dangerouslySetInnerHTML={{
+                    __html: slide.answer.replace(/\r\n|\r|\n/g, '<br />')
+                  }}
+                />
               )}
             </AccordionItem>
           ) : (
