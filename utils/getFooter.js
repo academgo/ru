@@ -1,4 +1,4 @@
-import { mapFooterLinksFaq, mapFooterLinksServices, mapFooterLinksNavigate } from "./mapFooterLinks";
+import { mapFooterLinksServices, mapFooterLinksNavigate } from "./mapFooterLinks";
 
 export const getFooter = async () => {
   const params = {
