@@ -16,18 +16,16 @@ export const getFooter = async () => {
                 }
               }
             }
-            linksServices {
-              linkServices {
-                label
-                destination {
-                  ... on Page {
-                    uri
-                  }
-                }
-              }
-            }
             logo {
               sourceUrl
+            }
+            linksServices {
+              linkServices {
+                destination {
+                  url
+                }
+                label
+              }
             }
           }
         }

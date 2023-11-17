@@ -39,6 +39,8 @@ import { AccordionBeauty } from "components/AccordionBeauty";
 import { SocialIconsBig } from "components/SocialIconsBig";
 import { SliderImages } from "components/SliderImages";
 import { ParallaxBlock } from "components/ParallaxBlock";
+import { ScrollToBlock } from "components/ScrollToBlock";
+import { ScrollLink } from "components/ScrollLink";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -208,6 +210,25 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/scrolllink": {
+        // console.log("SCROLL LINK: ", block.attributes);
+        return (
+          <ScrollLink
+            key={block.id}
+            text={block.attributes.data.text}
+            link={block.attributes.data.link}
+          />
+        )
+      }
+      case "acf/scrolltoblock": {
+        // console.log("SCROLL TO BLOCK: ", block.attributes);
+        return (
+          <ScrollToBlock
+            key={block.id}
+            id={block.attributes.data.destination}
+          />
+        )
+      }
       case "acf/parallaxblock": {
         // console.log("PARALLAX: ", block.attributes);
         return (
@@ -484,7 +505,7 @@ export const BlockRenderer = ({ blocks }) => {
           <ButtonSecondary
             key={block.id}
             text={block.attributes.data.text}
-            link={block.attributes.data.link}
+            link={block.attributes.data.link.url}
           />
         )
       }
