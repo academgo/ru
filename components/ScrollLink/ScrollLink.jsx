@@ -20,8 +20,10 @@ export const ScrollLink = ({ text, link }) => {
   };
 
   return (
-    <a onClick={() => scrollToSection(link)} className={styles.scrollLink}>
-      {text}
-    </a>
+    <button>
+      <a onClick={() => scrollToSection(link)} className={styles.scrollLink}>
+        {text}
+      </a>
+    </button>
   )
 }

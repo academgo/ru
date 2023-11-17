@@ -1,7 +1,7 @@
 export const getAlignItems = (verticalAlignment) => {
   const getAlignItemsMap = {
     top: "md:items-start",
-    center: "md:items-center",
+    center: "items-center",
     bottom: "md:items-end",
   };
 
