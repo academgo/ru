@@ -7,15 +7,15 @@
   padding: 20px;
 
   &:hover {
-    -webkit-box-shadow: 10px 10px 0px 1px rgba(255, 168, 0, 1);
-    -moz-box-shadow: 10px 10px 0px 1px rgba(255, 168, 0, 1);
-    box-shadow: 10px 10px 0px 1px rgba(255, 168, 0, 1);
-  }
-
-  @media screen and (max-width: 850px) {
     -webkit-box-shadow: 5px 5px 0px 1px rgba(255, 168, 0, 1);
     -moz-box-shadow: 5px 5px 0px 1px rgba(255, 168, 0, 1);
     box-shadow: 5px 5px 0px 1px rgba(255, 168, 0, 1);
+  }
+
+  @media screen and (max-width: 850px) {
+    -webkit-box-shadow: 2px 2px 0px 1px rgba(255, 168, 0, 1);
+    -moz-box-shadow: 2px 2px 0px 1px rgba(255, 168, 0, 1);
+    box-shadow: 2px 2px 0px 1px rgba(255, 168, 0, 1);
   }
 
 }

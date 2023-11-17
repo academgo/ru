@@ -57,7 +57,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
                   <FaInstagram fontSize="1.2em" padding="5px" fill="#fff" />
                 </Link>
                 <Link
-                  href="https://www.facebook.com/profile.php?id=100090953012689"
+                  href="https://www.facebook.com/academgo"
                   target='_blank'
                   className={styles.footerBottomSocialItem}
                 >
