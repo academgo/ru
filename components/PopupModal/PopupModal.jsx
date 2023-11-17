@@ -73,14 +73,19 @@ const PopupModal = ({ isOpen, onClose, onMessageVisibility }) => {
                 />
                 <SocialIcons />
               </div>
+              <button className={styles.closeButton} onClick={onClose}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M15 1L1 15M1.00001 1L15 15" stroke="#fff" strokeWidth="2" strokeLinecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
             </div>
           </div>
         </motion.div>
-        <button className={styles.closeButton} onClick={onClose}>
+        {/* <button className={styles.closeButton} onClick={onClose}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M15 1L1 15M1.00001 1L15 15" stroke="#fff" strokeWidth="2" strokeLinecap="round" stroke-linejoin="round" />
           </svg>
-        </button>
+        </button> */}
       </Modal>
     </AnimatePresence>
   );
