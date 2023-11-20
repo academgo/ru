@@ -53,7 +53,7 @@ export const SliderContent = ({ slides }) => {
               slidesPerView: 2,
             },
             992: {
-              slidesPerView: 3,
+              slidesPerView: 3.01,
             },
           }}
         // loop={true}

@@ -41,6 +41,7 @@ import { SliderImages } from "components/SliderImages";
 import { ParallaxBlock } from "components/ParallaxBlock";
 import { ScrollToBlock } from "components/ScrollToBlock";
 import { ScrollLink } from "components/ScrollLink";
+import { LinkTitle } from "components/LinkTitle";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -210,6 +211,16 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case "acf/linktitle": {
+        // console.log("LINK TITLE: ", block.attributes);
+        return (
+          <LinkTitle
+            key={block.id}
+            label={block.attributes.data.label}
+            destination={block.attributes.data.destination}
+          />
+        )
+      }
       case "acf/scrolllink": {
         // console.log("SCROLL LINK: ", block.attributes);
         return (

@@ -55,6 +55,10 @@
   border: none;
   cursor: pointer;
   font-size: 18px;
+
+  @media (max-width: 570px) {
+    right: 5px;
+  }
 }
 
 .popupContent {

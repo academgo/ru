@@ -1,0 +1,35 @@
+.linkTitle {
+  display: inline-block;
+  color: #CAC7C7;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: all ease-in-out 0.2s;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    color: #fff;
+
+    @media screen and (min-width: 768px) {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+}
