@@ -3,7 +3,7 @@ export default function robots() {
     rules: {
       userAgent: '*',
       // allow: '/',
-      disallow: '/admin',
+      disallow: '/admin/',
     },
     sitemap: 'https://academgo.com/sitemap.xml',
   }
