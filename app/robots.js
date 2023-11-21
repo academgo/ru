@@ -2,9 +2,8 @@ export default function robots() {
   return {
     rules: {
       userAgent: '*',
-      // allow: '/',
-      disallow: '/',
+      allow: '/',
     },
-    // sitemap: 'https://academgo.com/sitemap.xml',
+    sitemap: 'https://academgo.com/sitemap.xml',
   }
 }
