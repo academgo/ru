@@ -27,7 +27,7 @@ export default async function RootLayout({ children }) {
   const footerData = await getFooter();
   // console.log(footerData.linksNavigate);
   return (
-    <html lang="en" className={`${roboto.variable} ${rubik.variable}`}>
+    <html lang="ru" className={`${roboto.variable} ${rubik.variable}`}>
       <body className='font-body'>
         <TheHeader
           logo={headerData.logo}

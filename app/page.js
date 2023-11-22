@@ -12,7 +12,7 @@ export default async function Home() {
   }
   return (
     <>
-      <Script
+      {/* <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-XTMLVRC9RR"
       />
@@ -25,7 +25,7 @@ export default async function Home() {
           gtag('config', 'G-XTMLVRC9RR');
         `}
       </Script>
-      <FacebookPixel />
+      <FacebookPixel /> */}
       <BlockRenderer blocks={data} />
     </>
   );
