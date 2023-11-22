@@ -25,7 +25,7 @@ export const GiftBlock = ({ imageBg, imageBgAlt, heading, headingHighlight, desc
           {headingHighlight && <span className={styles.headingHighlight}>{headingHighlight}</span>}
         </h2>
         <p className={styles.giftBlockDescription}>{description}</p>
-        <Popup label='get a guide' align='center' />
+        <Popup label='получить гайд' align='center' />
         <Image
           src={image}
           alt={imageAlt}

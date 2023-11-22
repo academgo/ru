@@ -37,7 +37,7 @@ export const Price = ({ icon, heading, headingSmall, text, items, cost, subtext 
             <p className={styles.cost}>€{cost}</p>
             <p className={styles.subtext}>{subtext}</p>
             <div className={styles.buttonBlock}>
-              <Popup label="Choose" />
+              <Popup label="Выбрать" />
             </div>
           </>
         )}

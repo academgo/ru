@@ -25,7 +25,7 @@ export const Popup = ({ label, align }) => {
 
   const normalizelabel = label.toLowerCase();
 
-  if (normalizelabel === 'get a guide') {
+  if (normalizelabel === 'получить гайд') {
     return (
       <div>
         <PopupButton label={label} align={align} onOpenPopup={openModal} />

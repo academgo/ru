@@ -83,7 +83,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
               <div className={styles.gridNavigate}>
                 <div className={styles.gridItemContent}>
                   <div>
-                    <p className={styles.gridItemSubtitle}>Navigate</p>
+                    <p className={styles.gridItemSubtitle}>Обзор</p>
                   </div>
                   <div>
                     <ul className={styles.gridItemLinks}>
@@ -97,7 +97,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
                 </div>
                 <div className={styles.gridItemContent}>
                   <div>
-                    <p className={styles.gridItemSubtitle}>Services</p>
+                    <p className={styles.gridItemSubtitle}>Услуги</p>
                   </div>
                   <div>
                     <ul className={styles.gridItemLinks}>
@@ -114,8 +114,8 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
           </div>
           <div className={styles.divider}></div>
           <div className={styles.copyrigth}>
-            <p>© 2023 PoliPathWay</p>
-            <p>All rights reserved</p>
+            <p>© 2023 Academgo</p>
+            <p>Все права защищены</p>
           </div>
         </div>
       </div>

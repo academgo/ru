@@ -116,7 +116,7 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
               htmlFor="name"
               className={`${styles.label} ${fieldStates.name || initialValues.name ? styles.focused : ''}`}
             >
-              Full name
+              Ваше имя
             </label>
             <ErrorMessage name="name" component="div" className={styles.errorMessage} />
           </div>
@@ -135,7 +135,7 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
                 htmlFor="country"
                 className={`${styles.label} ${fieldStates.country || initialValues.country ? styles.focused : ''}`}
               >
-                Country of residence
+                Страна проживания
               </label>
               <ErrorMessage name="country" component="div" className={styles.errorMessage} />
             </div>
@@ -158,7 +158,7 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
               htmlFor="email"
               className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
             >
-              Email
+              Электронная почта
             </label>
             <ErrorMessage name="email" component="div" className={styles.errorMessage} />
           </div>

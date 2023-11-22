@@ -61,22 +61,22 @@ const PopupModalGift = ({ isOpen, onClose, onMessageVisibility }) => {
                   }}
                 />
                 <div className={styles.imageContent}>
-                  <h3 className={styles.imageContentTitle}>Start your journey</h3>
+                  <h3 className={styles.imageContentTitle}>Начни свой путь</h3>
                   <img className={styles.imageContentLogo} src="/assets/logo-academgo.webp" alt="logo" />
                 </div>
               </div>
               <div className={styles.formBlock}>
-                <h2 className={styles.popupTitle}>Free Guide</h2>
-                <p className={styles.popupSubtitle}>About the easiest way to education and relocation to Europe.</p>
-                <p className={styles.text}>You will find there:</p>
+                <h2 className={styles.popupTitle}>Бесплатный гайд</h2>
+                <p className={styles.popupSubtitle}>О самом простом способе поступления и переезда в Польшу</p>
+                <p className={styles.text}>Здесь вы найдете:</p>
                 <ul className={styles.list}>
-                  <li className={styles.listItem}>How to choose university</li>
-                  <li className={styles.listItem}>Detailed admission instructions</li>
-                  <li className={styles.listItem}>List of required documents</li>
-                  <li className={styles.listItem}>How to apply for a visa</li>
+                  <li className={styles.listItem}>Как выбрать хороший университет</li>
+                  <li className={styles.listItem}>Подробную инструкцию о поступлении</li>
+                  <li className={styles.listItem}>Список необходимых документов</li>
+                  <li className={styles.listItem}>Как и где подаваться на студенческую визу</li>
                 </ul>
                 <ContactFormShort
-                  buttonText="Send"
+                  buttonText="Отправить"
                   onMessageVisibility={onMessageVisibility}
                 />
                 {/* <div className={styles.socialIcons}>

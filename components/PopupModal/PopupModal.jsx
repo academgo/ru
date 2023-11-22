@@ -61,14 +61,14 @@ const PopupModal = ({ isOpen, onClose, onMessageVisibility }) => {
                   }}
                 />
                 <div className={styles.imageContent}>
-                  <h3 className={styles.imageContentTitle}>Start your journey</h3>
+                  <h3 className={styles.imageContentTitle}>Начни свой путь</h3>
                   <img className={styles.imageContentLogo} src="/assets/logo-academgo.webp" alt="logo" />
                 </div>
               </div>
               <div className={styles.formBlock}>
-                <h2 className={styles.popupTitle}>Contact us</h2>
+                <h2 className={styles.popupTitle}>Напишите нам</h2>
                 <ContactForm
-                  buttonText="Send"
+                  buttonText="Отправить"
                   onMessageVisibility={onMessageVisibility}
                 />
                 <SocialIcons />
