@@ -83,8 +83,8 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
                 <path d="M15 7L7.99998 14L4.99994 11M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#ffa800" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <div className={styles.messageTextWrapper}>
-                <h3 className={styles.messageTitle}>Thank you!</h3>
-                <p className={styles.messageText}>We received your message and contact soon.</p>
+                <h3 className={styles.messageTitle}>Ура!</h3>
+                <p className={styles.messageText}>Мы получили ваше сообщение и в ближайшее время свяжемся с вами.</p>
               </div>
               {/* <button onClick={closeMessagePopup}>Close</button> */}
             </div>
