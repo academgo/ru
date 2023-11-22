@@ -4,7 +4,7 @@ import styles from './LanguageDropdown.module.scss';
 import Link from 'next/link';
 
 const LanguageDropdown = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Set "EN" as the default language
+  const [selectedLanguage, setSelectedLanguage] = useState('RU'); // Set "EN" as the default language
 
   const toggleDropdown = () => {
     // Add code to toggle the dropdown if needed
@@ -22,7 +22,7 @@ const LanguageDropdown = () => {
       </div>
       <div className={styles.dropdownMenu}>
         {/* <Link href="#" className={styles.dropdownItem} onClick={() => selectLanguage('EN')}>EN</Link> */}
-        <Link href="https://academgo.com" className={styles.dropdownItem} onClick={() => selectLanguage('RU')}>RU</Link>
+        <Link href="https://academgo.com" className={styles.dropdownItem} onClick={() => selectLanguage('EN')}>EN</Link>
       </div>
     </div>
   );
