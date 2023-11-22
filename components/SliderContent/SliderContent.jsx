@@ -80,7 +80,7 @@ export const SliderContent = ({ slides }) => {
                   {slide.iconCost && <div className={styles.icon}><AiFillEuroCircle fontSize="1.3rem" color="#ffa800" /> from {slide.iconCost}€/Year</div>}
                   {slide.costBig && <p className={styles.costBig}>from {slide.costBig}€/Year</p>}
                   <div className={styles.popupBlock}>
-                    <Popup label='learn more' />
+                    <Popup label='подробнее' />
                   </div>
                 </div>
               </div>
