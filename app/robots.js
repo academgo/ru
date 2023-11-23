@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       // disallow: '/admin/',
     },
-    sitemap: 'https://academgo.com/sitemap.xml',
+    sitemap: 'https://ru.academgo.com/sitemap.xml',
   }
 }
