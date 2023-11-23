@@ -12,15 +12,15 @@ export default async function handler(req, res) {
         port: 465, // Порт для SSL
         secure: true, // Использовать SSL
         auth: {
-          user: 'academgo.info@gmail.com', // Ваш адрес электронной почты Gmail
-          pass: 'qlsyftzkktpyypgj', // Ваш пароль приложения Gmail
+          user: process.env.EMAIL_USER, // Ваш адрес электронной почты Gmail
+          pass: process.env.EMAIL_PASSWORD, // Ваш пароль приложения Gmail
         },
       });
 
       // Опции для отправки письма
       const mailOptions = {
         from: email,
-        to: 'academgo.info@gmail.com',
+        to: process.env.EMAIL_USER,
         subject: `Новое сообщение от ${name} - Academgo`,
         text: `${message}\n\nContact Details:\nName: ${name}\nCountry: ${country}\nEmail: ${email}`,
       };
