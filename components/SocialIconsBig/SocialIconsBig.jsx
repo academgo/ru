@@ -33,12 +33,19 @@ export const SocialIconsBig = ({ align }) => {
         <FaInstagram fontSize="2em" padding="5px" fill="#fff" />
       </Link>
       <Link
+        href="https://t.me/+zLBhFlT7W1Q0MWM0"
+        target='_blank'
+        className={styles.socialIcon}
+      >
+        <FaTelegramPlane fontSize="1.2em" padding="5px" fill="#fff" />
+      </Link>
+      {/* <Link
         href="https://www.facebook.com/academgo"
         target='_blank'
         className={styles.socialIcon}
       >
         <FaFacebookF fontSize="2em" padding="5px" fill="#fff" />
-      </Link>
+      </Link> */}
       <Link
         href="https://www.tiktok.com/@academgo"
         target='_blank'
