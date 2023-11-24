@@ -77,8 +77,8 @@ export const SliderContent = ({ slides }) => {
                   <p className={styles.pretitle}>{slide.pretitle}</p>
                   <p style={{ color: slide.descriptionColor }} className={styles.description}>{slide.description}</p>
                   {slide.iconTime && <div className={styles.icon}><AiFillClockCircle fontSize="1.3rem" color="#ffa800" /> {slide.iconTime}</div>}
-                  {slide.iconCost && <div className={styles.icon}><AiFillEuroCircle fontSize="1.3rem" color="#ffa800" /> from {slide.iconCost}€/Year</div>}
-                  {slide.costBig && <p className={styles.costBig}>from {slide.costBig}€/Year</p>}
+                  {slide.iconCost && <div className={styles.icon}><AiFillEuroCircle fontSize="1.3rem" color="#ffa800" /> от {slide.iconCost}€/год</div>}
+                  {slide.costBig && <p className={styles.costBig}>от {slide.costBig}€/год</p>}
                   <div className={styles.popupBlock}>
                     <Popup label='подробнее' />
                   </div>
