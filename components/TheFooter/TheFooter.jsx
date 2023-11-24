@@ -42,13 +42,6 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
                 </Link>
               </div>
               <div className={styles.footerBottomSocial}>
-                {/* <Link
-                  href="https://t.me/+zLBhFlT7W1Q0MWM0"
-                  target='_blank'
-                  className={styles.footerBottomSocialItem}
-                >
-                  <FaTelegramPlane fontSize="1.2em" padding="5px" fill="#fff" />
-                </Link> */}
                 <Link
                   href="https://www.instagram.com/academgo.en/"
                   target='_blank'
@@ -59,7 +52,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
                 <Link
                   href="https://t.me/+zLBhFlT7W1Q0MWM0"
                   target='_blank'
-                  className={styles.socialIcon}
+                  className={styles.footerBottomSocialItem}
                 >
                   <FaTelegramPlane fontSize="1.2em" padding="5px" fill="#fff" />
                 </Link>
