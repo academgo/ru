@@ -19,7 +19,7 @@ const validationSchema = Yup.object({
   email: Yup.string().email('Invalid Email adress').required('Required'),
 });
 
-export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibility }) => {
+export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibility, subject }) => {
 
   const [values, setValues] = useState(initialValues);
 
@@ -41,7 +41,8 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
 
   const onSubmit = async (values, { resetForm }) => {
     try {
-      await axios.post('/api/contacts', values); // Отправляем данные формы на сервер
+      values.subject = subject || '';
+      await axios.post('/api/contacts', { ...values, subject }); // Отправляем данные формы на сервер
       // Здесь вы можете добавить код для обработки успешной отправки, например, очистка формы или вывод сообщения пользователю
       console.log('Форма успешно отправлена!');
       resetForm(); // Сбрасываем значения полей формы к исходным значениям
