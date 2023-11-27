@@ -37,7 +37,7 @@ export const SocialIconsBig = ({ align }) => {
         target='_blank'
         className={styles.socialIcon}
       >
-        <FaTelegramPlane fontSize="1.2em" padding="5px" fill="#fff" />
+        <FaTelegramPlane fontSize="2em" padding="5px" fill="#fff" />
       </Link>
       {/* <Link
         href="https://www.facebook.com/academgo"
