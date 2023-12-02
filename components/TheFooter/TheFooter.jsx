@@ -43,7 +43,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
               </div>
               <div className={styles.footerBottomSocial}>
                 <Link
-                  href="https://www.instagram.com/academgo.en/"
+                  href="https://www.instagram.com/academgo/"
                   target='_blank'
                   className={styles.footerBottomSocialItem}
                 >
@@ -64,7 +64,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
                   <FaFacebookF fontSize="1.2em" padding="5px" fill="#fff" />
                 </Link> */}
                 <Link
-                  href="https://www.tiktok.com/@academgo.en"
+                  href="https://www.tiktok.com/@academgo"
                   target='_blank'
                   className={styles.footerBottomSocialItem}
                 >
