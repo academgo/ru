@@ -42,6 +42,10 @@ import { ParallaxBlock } from "components/ParallaxBlock";
 import { ScrollToBlock } from "components/ScrollToBlock";
 import { ScrollLink } from "components/ScrollLink";
 import { LinkTitle } from "components/LinkTitle";
+import { VideoShortMobile } from "components/VideoShortMobile";
+import { ImageBlog } from "components/ImageBlog";
+import { ListBullet } from "../ListBullet";
+import { SliderPosts } from "../SliderPosts";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -85,6 +89,25 @@ export const BlockRenderer = ({ blocks }) => {
         iconTime: data[`slides_${slideIndex}_slide_icon_time`],
         iconCost: data[`slides_${slideIndex}_slide_icon_cost`],
         costBig: data[`slides_${slideIndex}_slide_cost_big`],
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
+  const objToArrayPosts = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        link: data[`slides_${slideIndex}_slide_link`],
+        image: data[`slides_${slideIndex}_slide_image`],
+        category: data[`slides_${slideIndex}_slide_category`],
+        title: data[`slides_${slideIndex}_slide_title`],
+        description: data[`slides_${slideIndex}_slide_description`],
       };
       arr.push(slide);
     }
@@ -211,6 +234,17 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case 'acf/videoshortmobile': {
+        // console.log("SidebarRenderer.js: VideoShort block")
+        return (
+          <VideoShortMobile
+            key={block.id}
+            videoId={block.attributes.data.video_id}
+            posterImage={block.attributes.data.poster_image}
+            alt={block.attributes.data.poster_image_alt}
+          />
+        )
+      }
       case "acf/linktitle": {
         // console.log("LINK TITLE: ", block.attributes);
         return (
@@ -287,6 +321,13 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
+      case "acf/listbullet": {
+        const innerBlocks = objToArrayItems(block.attributes.data, "items");
+        // console.log("LIST BULLET: ", innerBlocks)
+        return (
+          <ListBullet key={block.id} items={innerBlocks} />
+        )
+      }
       case "acf/priceblock": {
         const innerBlocks = objToArrayItems(block.attributes.data, "items");
         // console.log("PRICE BLOCK: ", innerBlocks)
@@ -329,6 +370,16 @@ export const BlockRenderer = ({ blocks }) => {
             description={block.attributes.data.description}
             image={block.attributes.data.image}
             imageAlt={block.attributes.data.image_alt}
+          />
+        )
+      }
+      case "acf/imageblog": {
+        // console.log("IMAGE BLOG: ", block.attributes);
+        return (
+          <ImageBlog
+            key={block.id}
+            src={block.attributes.data.image}
+            alt={block.attributes.data.alt}
           />
         )
       }
@@ -535,6 +586,16 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("SLIDER FEEDBACK: ", innerBlocks)
         return (
           <SliderFeedback
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
+      case "acf/sliderposts": {
+        const innerBlocks = objToArrayPosts(block.attributes.data, "slides");
+        // console.log("SLIDER POSTS: ", innerBlocks)
+        return (
+          <SliderPosts
             key={block.id}
             slides={innerBlocks}
           />
