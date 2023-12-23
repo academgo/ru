@@ -34,19 +34,21 @@ export const VideoShort = ({ videoId, posterImage, alt }) => {
           )}
         </div>
       ) : (
-        <div className={styles.videoWrapper}>
-          <YouTube
-            videoId={videoId}
-            opts={{
-              width: '295',
-              height: '530',
-              playerVars: {
-                autoplay: 1,
-              },
-            }}
-            onReady={onReady}
-          />
-        </div>
+        { videoId } && (
+          <div className={styles.videoWrapper}>
+            <YouTube
+              videoId={videoId}
+              opts={{
+                width: '295',
+                height: '530',
+                playerVars: {
+                  autoplay: 1,
+                },
+              }}
+              onReady={onReady}
+            />
+          </div>
+        )
       )}
     </div>
   );
