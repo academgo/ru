@@ -16,7 +16,7 @@ export const QrBlock = () => {
           />
         </div>
         <div className={styles.qrBlockText}>
-          <p className={styles.text}>You can find more information</p>
+          <p className={styles.text}>Узнайте больше здесь</p>
         </div>
       </div>
     </div>
