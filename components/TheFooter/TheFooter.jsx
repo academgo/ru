@@ -114,7 +114,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
           </div>
           <div className={styles.divider}></div>
           <div className={styles.copyrigth}>
-            <p>© 2023 Academgo</p>
+            <p>© {new Date().getFullYear()} Academgo</p>
             <p>Все права защищены</p>
           </div>
         </div>
