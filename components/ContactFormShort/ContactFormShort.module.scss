@@ -15,6 +15,18 @@
   }
 }
 
+.phoneInput {
+
+  &::before {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #041C34;
+  }
+}
+
 .inputData {
   position: relative;
   width: 100%;
@@ -58,7 +70,7 @@
   position: absolute;
   pointer-events: none;
   bottom: 8px;
-  left: 20px;
+  left: 30px;
   font-size: 14px;
   transition: all 0.3s ease;
   color: #8c9ca8;
@@ -74,7 +86,7 @@
   position: absolute;
   pointer-events: none;
   top: 15px;
-  left: 20px;
+  left: 30px;
   font-size: 14px;
   height: fit-content;
   transition: all 0.3s ease;

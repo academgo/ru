@@ -11,7 +11,7 @@ const initialValues = {
   name: '',
   country: '',
   // surname: '',
-  // phone: '',
+  phone: '',
   email: '',
   message: '',
 };
@@ -19,7 +19,7 @@ const initialValues = {
 const validationSchema = Yup.object({
   name: Yup.string().required('Required'),
   country: Yup.string().required('Required'),
-  // phone: Yup.string().required('Required'),
+  phone: Yup.string().required('Required'),
   email: Yup.string().email('Invalid Email adress').required('Required'),
   message: Yup.string().required('Required'),
 });
@@ -32,7 +32,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
     name: false,
     country: false,
     // surname: false,
-    // phone: false,
+    phone: false,
     email: false,
     message: false,
   });
@@ -179,8 +179,8 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
             </div>
           </div>
 
-          {/* <div
-            className={styles.inputData}
+          <div
+            className={`${styles.inputData} ${styles.phoneInput}`}
             data-aos="fade-up"
             data-aos-duration="1200"
           >
@@ -199,7 +199,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
               Phone
             </label>
             <ErrorMessage name="phone" component="div" className={styles.errorMessage} />
-          </div> */}
+          </div>
 
           <div
             className={styles.inputData}
